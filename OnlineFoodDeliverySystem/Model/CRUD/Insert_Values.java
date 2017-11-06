@@ -14,7 +14,7 @@ public class Insert_Values {
 		PreparedStatement ps =null;
 		
 		try {
-			String query = "INSERT INTO tasks(Name) values (?)";
+			String query = "INSERT INTO user(Name) values (?)";
 			ps = connection.prepareStatement(query);
 			ps.setString(2, Name);
 			

@@ -11,7 +11,7 @@ public class DB_Connection {
 		System.out.println(obj_DB_Connection.get_connection());
 	}
 
-	public Connection get_connection() {
+	public static Connection get_connection() {
 
 		Connection connection = null;
 
