@@ -2,6 +2,7 @@
     <wb-module deploy-name="OnlineFoodDeliverySystem">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Model"/>
         <property name="context-root" value="OnlineFoodDeliverySystem"/>
         <property name="java-output-path" value="/OnlineFoodDeliverySystem/build/classes"/>
     </wb-module>
