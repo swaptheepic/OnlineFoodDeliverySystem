@@ -38,6 +38,7 @@ of Students Using Data Mining Technique</title>
 		</div>
     </div> <!-- end of menu -->
     
+<<<<<<< HEAD
 	<div id="templatemo_content_container">
         <div id="templatemo_content">
             <div id="templatemo_content_left">
@@ -69,3 +70,10 @@ of Students Using Data Mining Technique</title>
                 </div>
                 </div>
                 </html>
+=======
+    In res
+    
+    
+</body>
+</html>
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git

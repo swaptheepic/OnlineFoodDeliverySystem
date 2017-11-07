@@ -56,12 +56,13 @@ public class LLogin extends HttpServlet {
 			if (rs.next()) {
 				System.out.println("LOGIN SUCCESSFUL");
 
+				response.sendRedirect("restaurants.jsp");
 			}
 
 			else {
 				System.out.println("Login failed");
 
-				response.sendRedirect("learner.jsp");
+				response.sendRedirect("login.jsp");
 			}
 			ps.close();
 
