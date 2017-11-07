@@ -41,7 +41,6 @@ public class LRegistration extends HttpServlet {
 			throws ServletException, IOException {
 
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
