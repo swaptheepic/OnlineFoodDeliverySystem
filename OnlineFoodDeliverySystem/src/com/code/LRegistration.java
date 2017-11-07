@@ -25,7 +25,7 @@ public class LRegistration extends HttpServlet {
 	Connection con = null;
 	PreparedStatement ps;
 	ResultSet rs;
-	String fname, mname, lname, dob, gender, address, mbno, email, branch;
+	String fname, address, mbno, email , uname , passwd;
 
 	public void init(ServletConfig config) throws ServletException {
 		try {
@@ -48,38 +48,19 @@ public class LRegistration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		fname = request.getParameter("fname");
-		mname = request.getParameter("mname");
-		lname = request.getParameter("lname");
-		dob = request.getParameter("dob");
-		gender = request.getParameter("gender");
 		address = request.getParameter("address");
 		mbno = request.getParameter("mbnumber");
 		email = request.getParameter("email");
-		branch = request.getParameter("branch");
-		String ssc = request.getParameter("ssc");
-		String hsce = request.getParameter("hsc");
-		String agree = request.getParameter("agree");
-		String backlog = request.getParameter("Backlog");
 		System.out.println("FIRST NAME====" + fname);
-		System.out.println("branch====" + branch);
-		System.out.println("backlog====" + backlog);
 		HttpSession session = request.getSession();
 
-		Float a = Float.parseFloat(ssc);
-		Float b = Float.parseFloat(hsce);
-		Float c = Float.parseFloat(agree);
-		Float avg = (a + b + c) / 3;
-
-		session.setAttribute("branch", branch);
-		session.setAttribute("Backlog", backlog);
 		String appdate = request.getParameter("appdate");
 
-		String status = "NotApproved";
 
 		try {
 			String user = "";
 			Connection con1 = DB_Connection.get_connection();
-			PreparedStatement ps2 = con1.prepareStatement("SELECT * FROM  learnerreg ");
+			PreparedStatement ps2 = con1.prepareStatement("SELECT * FROM  user ");
 			ResultSet rs2 = ps2.executeQuery();
 			String uname = request.getParameter("uname");
 			String pwd = request.getParameter("pwd");
@@ -89,7 +70,7 @@ public class LRegistration extends HttpServlet {
 				System.out.println("user====" + user);
 				System.out.println("uname====" + uname);
 				if (user.equals(uname)) {
-					response.sendRedirect("learnerReg.jsp?same");
+					response.sendRedirect("CustReg.jsp?same");
 					// response.sendRedirect("learner.jsp");
 					System.out.println("Username Already Exist");
 				}
@@ -97,22 +78,19 @@ public class LRegistration extends HttpServlet {
 			try {
 				Statement st = con.createStatement();
 				int r = st.executeUpdate(
-						"INSERT INTO `placement`.`learnerreg` (`id`, `fname`, `mname`, `lname`, `dob`, `gender`, `address`, `mobile`, `email`, `branch`, `appdate`, `status`, `uname`, `pwd`,`SSC`,`HSC`,`agree`,`average`,`Backlog`) VALUES (NULL, '"
-								+ fname + "', '" + mname + "', '" + lname + "', '" + dob + "', '" + gender + "','"
-								+ address + "', '" + mbno + "','" + email + "','" + branch + "', '" + appdate + "', '"
-								+ status + "', '" + uname + "', '" + pwd + "', '" + ssc + "', '" + hsce + "', '" + agree
-								+ "', '" + avg + "', '" + backlog + "')");
+						"INSERT INTO `ofd_db`.`user` (`u_id`, `name`, `username`, `password`, `address`, `ph_no`, `reg_date`) VALUES (NULL, '"+ fname + "', '" + uname + "', '" + pwd + "', '" + address + "', '" + mbno + "','"
+								+ appdate + "')");
 				System.out.println("insert done");
 
 				if (r > 0) {
 
-					response.sendRedirect("learner.jsp?success");
+					response.sendRedirect("CustReg.jsp?success");
 					// response.sendRedirect("learner.jsp");
 					System.out.println("Registration Successful");
 					// response.sendRedirect("learner.jsp");
 
 				} else {
-					response.sendRedirect("learnerReg.jsp?fail=yes");
+					response.sendRedirect("CustReg.jsp?fail=yes");
 					System.out.println("Registration Failed");
 				}
 			} catch (Exception e) {
