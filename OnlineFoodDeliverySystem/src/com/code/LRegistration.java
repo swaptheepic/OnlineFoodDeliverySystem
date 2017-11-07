@@ -25,7 +25,7 @@ public class LRegistration extends HttpServlet {
 	Connection con = null;
 	PreparedStatement ps;
 	ResultSet rs;
-	String fname, address, mbno, email , uname , passwd;
+	String fname, address, mbno, email, uname, passwd;
 
 	public void init(ServletConfig config) throws ServletException {
 		try {
@@ -34,13 +34,12 @@ public class LRegistration extends HttpServlet {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -53,9 +52,7 @@ public class LRegistration extends HttpServlet {
 		email = request.getParameter("email");
 		System.out.println("FIRST NAME====" + fname);
 		HttpSession session = request.getSession();
-
 		String appdate = request.getParameter("appdate");
-
 
 		try {
 			String user = "";
@@ -78,17 +75,13 @@ public class LRegistration extends HttpServlet {
 			try {
 				Statement st = con.createStatement();
 				int r = st.executeUpdate(
-						"INSERT INTO `ofd_db`.`user` (`u_id`, `name`, `username`, `password`, `address`, `ph_no`, `reg_date`) VALUES (NULL, '"+ fname + "', '" + uname + "', '" + pwd + "', '" + address + "', '" + mbno + "','"
+						"INSERT INTO `ofd_db`.`user` (`u_id`, `name`, `username`, `password`, `address`, `ph_no`, `reg_date`) VALUES (NULL, '"
+								+ fname + "', '" + uname + "', '" + pwd + "', '" + address + "', '" + mbno + "','"
 								+ appdate + "')");
 				System.out.println("insert done");
-
 				if (r > 0) {
-
 					response.sendRedirect("CustReg.jsp?success");
-					// response.sendRedirect("learner.jsp");
 					System.out.println("Registration Successful");
-					// response.sendRedirect("learner.jsp");
-
 				} else {
 					response.sendRedirect("CustReg.jsp?fail=yes");
 					System.out.println("Registration Failed");
