@@ -104,8 +104,8 @@
 										<td>
 											<div id="input_div">
 												<input type="number" size="25" value="0" id="count<%=sr%>"> <input
-													type="button" value="-" id="moins" onclick="minus()">
-														<input type="button" value="+" id="plus" onclick="plus()">
+													type="button" value="-" id="moins" onclick="minus<%=sr%>()">
+														<input type="button" value="+" id="plus" onclick="plus<%=sr%>()">
 											</div>
 
 										</td>
@@ -128,16 +128,51 @@
 </body>
 <script>
   var count<%=sr%>put = 0;
-  var count<%=sr%> = document.getElementById("count<%=sr%>");
-  function plus(){
+  function plus1(){
       count<%=sr%>put++;
-      count<%=sr%>.value = count<%=sr%>put;
+      document.getElementById("count1").value = count<%=sr%>put;
   }
-  function minus(){
+  function minus1(){
     if (count<%=sr%>put > 1) {
       count<%=sr%>put--;
-      count<%=sr%>.value = count<%=sr%>put;
+      document.getElementById("count1").value = count<%=sr%>put;
     }  
+    function plus2(){
+        count<%=sr%>put++;
+        document.getElementById("count2").value = count<%=sr%>put;
+    }
+    function minus2(){
+      if (count<%=sr%>put > 1) {
+        count<%=sr%>put--;
+        document.getElementById("count2").value = count<%=sr%>put;
+      }  
+      function plus3(){
+          count<%=sr%>put++;
+          document.getElementById("count3").value = count<%=sr%>put;
+      }
+      function minus3(){
+        if (count<%=sr%>put > 1) {
+          count<%=sr%>put--;
+          document.getElementById("count3").value = count<%=sr%>put;
+        }  
+        function plus4(){
+            count<%=sr%>put++;
+            document.getElementById("count4").value = count<%=sr%>put;
+        }
+        function minus4(){
+          if (count<%=sr%>put > 1) {
+            count<%=sr%>put--;
+            document.getElementById("count4").value = count<%=sr%>put;
+          }  
+          function plus5(){
+              count<%=sr%>put++;
+              document.getElementById("count5").value = count<%=sr%>put;
+          }
+          function minus5(){
+            if (count<%=sr%>put > 1) {
+              count<%=sr%>put--;
+              document.getElementById("count5").value = count<%=sr%>put;
+            }  
   }
   </script>
 </html>
