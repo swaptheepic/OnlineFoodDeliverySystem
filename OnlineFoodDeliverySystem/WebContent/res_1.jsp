@@ -32,10 +32,9 @@
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
 
+	
+<script src="add_to_cart.js"></script>
 
 </head>
 <body>
@@ -92,55 +91,44 @@
 					while(rs.next())
 					{
 						sr++;
+						int i=0;
 						m_item = rs.getString("Name");
 						price = rs.getString("Price");
 						
 						System.out.println(m_item+" "+price);
+						
 					%>
 									<tr align="center">
+									<input type="hidden" id="item_name" value=<%=m_item%>></input>
+									<input type="hidden" id="item_price" value=<%=price%>></input>
 										<td><%=sr%></td>
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
 										<td>
-											<div id="input_div">
-												<input type="text" size="25" value="0" id="count"> <input
-													type="button" value="-" id="moins" onclick="minus()">
-														<input type="button" value="+" id="plus" onclick="plus()">
-											</div>
-
+											<input id="quantity" type="number" value=0></input>											
 										</td>
+										<td>
+											<button onclick='addItem()'>Add item</button>											
+										</td>
+										    
 									</tr>
 									<%} %>
 
 								</table>
 							</div>
 
-							<input type="submit" value="Submit" id="submit">
+							<!-- <input type="submit" value="Submit" id="submit"> -->
 						</div>
 					</div>
-
-
-					<br /> <br /> <br /> <br />
+				<br /> <br /> <br /> <br />
 				</div>
 			</div>
 		</div>
+		  <div id="cart">
+		  
 	</div>
 	</div>
 	</div>
 </body>
-<script>
-  var count = 1;
-  var countEl = document.getElementById("count");
-  function plus(){
-      count++;
-      countEl.value = count;
-  }
-  function minus(){
-    if (count > 1) {
-      count--;
-      countEl.value = count;
-    }  
-  }
 
-  </script>
 </html>
