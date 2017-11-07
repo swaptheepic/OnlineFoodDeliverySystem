@@ -1,24 +1,26 @@
-<%@page import="com.util.DbConnection"%>
+<%@page import="connection.DB_Connection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+	pageEncoding="ISO-8859-1"%>
+
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
-<%@page import="java.sql.Connection" %>
-<%@page import="java.sql.PreparedStatement" %>
-<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
 
-    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Predicting the Eligibility for Placement
-of Students Using Data Mining Technique</title>
-<meta name="keywords" content="free css layout, old blog template, CSS, HTML" />
-<meta name="description" content="Old Blog Template - free website template provided by TemplateMo.com" />
+<title>Predicting the Eligibility for Placement of Students
+	Using Data Mining Technique</title>
+<meta name="keywords"
+	content="free css layout, old blog template, CSS, HTML" />
+<meta name="description"
+	content="Old Blog Template - free website template provided by TemplateMo.com" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
@@ -33,85 +35,87 @@ of Students Using Data Mining Technique</title>
 <body>
 
 	<div id="templatemo_header_panel">
-    	<div id="templatemo_title_section">
-				<h2>Predicting the Eligibility for Placement
-of Students Using Data Mining Technique</h2>
-	  </div>
-    </div> <!-- end of templatemo header panel -->
-    
-    <div id="templatemo_menu_panel">
-    	<div id="templatemo_menu_section">
-            <ul>
-                
-				<!-- <li><a href="updateprofile.jsp">Update Profile</a></li> -->
-				<li><a href="details1.jsp">Back</a></li>			                 
-            </ul> 
+		<div id="templatemo_title_section">
+			<h2>Predicting the Eligibility for Placement of Students Using
+				Data Mining Technique</h2>
 		</div>
-    </div> <!-- end of menu -->
-    
+	</div>
+	<!-- end of templatemo header panel -->
+
+	<div id="templatemo_menu_panel">
+		<div id="templatemo_menu_section">
+			<ul>
+
+				<!-- <li><a href="updateprofile.jsp">Update Profile</a></li> -->
+				<li><a href="details1.jsp">Back</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end of menu -->
+
 	<div id="templatemo_content_container">
-        <div id="templatemo_content">
-            <div id="templatemo_content_left">
-				
-                <div class="templatemo_post_wrapper">
-                <div class="templatemo_post">
-                    <div align="center">
-					<br />
-					<br /><br />
-	                <div align="center">
-					<h3>
-					<h3>MENU FOR RES-1</h3>
-					<br></br>
-						</h3>
-						<br />
-					<table align="center" cellpadding="5" border="1" cellspacing="5" bgcolor="white">
-					
-						<tr>
-						        <th>SR No. </th>
-								<th> Menu Item </th>
-								<th> Price </th>
-								
-						</tr>
-					<%
-					Connection con=DbConnection.getConnection();
-					PreparedStatement ps=con.prepareStatement("select * from company");
-					ResultSet rs= ps.executeQuery();
-					String m_item,price;
-					int sr=0;
-					while(rs.next())
-					{
-						sr++;
-						m_item = rs.getString("compnay");
-						price = rs.getString("SSC");
-						
-						System.out.println(m_item+" "+price);
-					%>
-								<tr align="center">
-								<td><%=sr%></td>
-								<td><%=m_item%></td>
-								<td><%=price%></td>
-								
-							</tr>
-					<%} %>
-					
-					</table>
-					
-					
+		<div id="templatemo_content">
+			<div id="templatemo_content_left">
+
+				<div class="templatemo_post_wrapper">
+					<div class="templatemo_post">
+						<div align="center">
+							<br /> <br />
+							<br />
+							<div align="center">
+								<h3>
+									<h3>MENU FOR RES-1</h3>
+									<br></br>
+								</h3>
+								<br />
+								<table align="center" cellpadding="5" border="1" cellspacing="5"
+									bgcolor="white">
+
+									<tr>
+										<th>SR No.</th>
+										<th>Menu Item</th>
+										<th>Price</th>
+
+									</tr>
+									<%
+					Connection con= DB_Connection.get_connection();
+					PreparedStatement ps=con.prepareStatement("select * from res2");
+						ResultSet rs= ps.executeQuery();
+						String m_item,price;
+						int sr=0;
+						while(rs.next())
+						{
+							sr++;
+							m_item = rs.getString("Name");
+							price = rs.getString("Price");
+							
+							System.out.println(m_item+" "+price);
+						%>
+									<tr align="center">
+										<td><%=sr%></td>
+										<td><%=m_item%></td>
+										<td><%=price%>/-</td>
+
+									</tr>
+									<%} %>
+
+								</table>
+
+
+							</div>
+
+
+
+						</div>
 					</div>
-                    
-                    
-                    
-                </div>
-                </div>
-					
-					
+
+
+					<br /> <br /> <br />
 					<br />
-					<br />
-					<br /><br />
-					</div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
 </html>
