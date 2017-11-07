@@ -105,7 +105,14 @@
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
 										<td>
+<<<<<<< HEAD
 											<input id="quantity" type="number" value=0></input>											
+=======
+											<div id="input_div">
+												<input type="number" size="25" value="0" id="count<%=sr%>"> 
+											</div>
+
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 										</td>
 										<td>
 											<button onclick='addItem()'>Add item</button>											
@@ -116,11 +123,19 @@
 
 								</table>
 							</div>
+<<<<<<< HEAD
 
 							<!-- <input type="submit" value="Submit" id="submit"> -->
+=======
+							<input type="submit" value="Submit" id="submit">
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 						</div>
 					</div>
+<<<<<<< HEAD
 				<br /> <br /> <br /> <br />
+=======
+					<br /> <br /> <br /> <br />
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 				</div>
 			</div>
 		</div>
@@ -130,5 +145,11 @@
 	</div>
 	</div>
 </body>
+<<<<<<< HEAD
 
+=======
+<script>
+ 
+  </script>
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 </html>
