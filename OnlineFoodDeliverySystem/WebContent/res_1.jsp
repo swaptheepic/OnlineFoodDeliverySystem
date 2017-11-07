@@ -48,7 +48,7 @@
 			<ul>
 
 				<!-- <li><a href="updateprofile.jsp">Update Profile</a></li> -->
-				<li><a href="details1.jsp">Back</a></li>
+				<li><a href="restaurants.jsp">Back</a></li>
 			</ul>
 		</div>
 	</div>
