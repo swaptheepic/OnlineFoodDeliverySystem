@@ -106,7 +106,7 @@
 											<div id="input_div">					
 														<p>
 														<img src="http://i.imgur.com/yOadS1c.png" id="minus1" width="20" height="20" class="minus" />
-  														<input id="qty1" type="text" value="1" class="qty" />
+  														<input id="qty<%=sr%>" type="text" value="1" class="qty" />
   														<img id="add1" src="http://i.imgur.com/98cvZnj.png" width="20" height="20" class="add" />
 														</p>	
 											</div>
