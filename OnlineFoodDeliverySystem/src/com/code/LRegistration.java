@@ -119,10 +119,7 @@ public class LRegistration extends HttpServlet {
 				}
 			} catch (Exception e) {
 			}
-
 		} catch (Exception e) {
 		}
-
 	}
-
 }
