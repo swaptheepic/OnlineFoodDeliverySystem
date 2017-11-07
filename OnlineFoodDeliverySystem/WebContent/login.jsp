@@ -35,15 +35,14 @@ of Students Using Data Mining Technique</title>
 
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
-				<h2>Online Food Delivery System</h2>
+				<h2>Online food delivery system</h2>
 	  </div>
     </div> <!-- end of templatemo header panel -->
     
     <div id="templatemo_menu_panel">
     	<div id="templatemo_menu_section">
             <ul>
-                <li><a href="index.jsp" class="active">Home</a></li>
-				               
+                <li><a href="index.jsp" class="active">Home</a></li>                 
             </ul> 
 		</div>
     </div> <!-- end of menu -->
@@ -55,7 +54,7 @@ of Students Using Data Mining Technique</title>
                 <div class="templatemo_post_wrapper">
                 <div class="templatemo_post">
                     <div align="center">
-						<h3>User Login</h3>
+						<h3>Learner Login</h3>
 						<br />
 
 						<form action="llog" method="post">

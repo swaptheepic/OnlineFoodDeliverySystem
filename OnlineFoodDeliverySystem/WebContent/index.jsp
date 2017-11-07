@@ -24,7 +24,7 @@ of Students Using Data Mining Technique</title>
 
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
-				<h2>Online Food Delivery System</h2>
+				<h2>Online food delivery system</h2>
 	  </div>
     </div> <!-- end of templatemo header panel -->
     
@@ -32,9 +32,8 @@ of Students Using Data Mining Technique</title>
     	<div id="templatemo_menu_section">
             <ul>
                 <li><a href="index.jsp" class="active">Home</a></li>
-				<li><a href="login.jsp">Login</a></li>
-				<li><a href="about.jsp">About Us</a></li>
-						                 
+						<li><a href="login.jsp">Login</a></li>
+						<li><a href="about.jsp">About</a></li>                  
             </ul> 
 		</div>
     </div> <!-- end of menu -->
@@ -50,10 +49,33 @@ of Students Using Data Mining Technique</title>
                     	<!-- Posted by <a href="http://www.templatemo.com" target="_blank">templatemo.com</a>, December 7, 2048 at 10:12 am, in <a href="#">Player.</a> -->
                     </div>
                     <div class="post_body">
-                       <center></centre> <img src="images/1.jpg" alt="free css template" border="1" /></center>
+                            <center>
+							<div class="w3-content w3-section" style="max-width:500px">
+  										<img class="mySlides" src="images/12.jpg" style="width:100%">
+  										<img class="mySlides" src="images/23.jpg" style="width:100%">
+  										<img class="mySlides" src="images/34.jpg" style="width:100%">
+							</div>
+							</center>
+							<script>
+									var myIndex = 0;
+									carousel();
+
+									function carousel() {
+    												var i;
+   													 var x = document.getElementsByClassName("mySlides");
+   													 for (i = 0; i < x.length; i++) {
+   															   x[i].style.display = "none";  
+   												     }
+   													 myIndex++;
+  													  if (myIndex > x.length) {myIndex = 1}    
+  													  x[myIndex-1].style.display = "block";  
+    												setTimeout(carousel, 2000); // Change image every 2 seconds
+													}
+						</script>
+					
                       
                   </div>
-                  
+             
                 </div>
                 </div>
                 </html>
