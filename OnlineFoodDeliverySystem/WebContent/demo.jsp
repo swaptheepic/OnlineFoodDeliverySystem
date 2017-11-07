@@ -34,72 +34,21 @@
 </script>
 <script src="includes/jquery-1.6.2.js" type="text/javascript"></script>
     
-<style>
-    .quantity {
-    	  padding-top: 20px;
-    	  margin-right: 60px;
-    	}
-    	.quantity input {
-    	  -webkit-appearance: none;
-    	  border: none;
-    	  text-align: center;
-    	  width: 32px;
-    	  font-size: 16px;
-    	  color: #43484D;
-    	  font-weight: 300;
-    	}
-    	 
-    	button[class*=btn] {
-    	  width: 30px;
-    	  height: 30px;
-    	  background-color: #E1E8EE;
-    	  border-radius: 6px;
-    	  border: none;
-    	  cursor: pointer;
-    	}
-    	.minus-btn img {
-    	  margin-bottom: 3px;
-    	}
-    	.plus-btn img {
-    	  margin-top: 2px;
-    	}
-    	 
-    	button:focus,
-    	input:focus {
-    	  outline:0;
-    	}
-  </style>
+
   <script>
-  $('.minus-btn').on('click', function(e) {
-	    e.preventDefault();
-	    var $this = $(this);
-	    var $input = $this.closest('div').find('input');
-	    var value = parseInt($input.val());
-	 
-	    if (value &amp;gt; 1) {
-	        value = value - 1;
-	    } else {
-	        value = 0;
-	    }
-	 
-	  $input.val(value);
-	 
-	});
-	 
-	$('.plus-btn').on('click', function(e) {
-	    e.preventDefault();
-	    var $this = $(this);
-	    var $input = $this.closest('div').find('input');
-	    var value = parseInt($input.val());
-	 
-	    if (value &amp;lt; 100) {
-	        value = value + 1;
-	    } else {
-	        value =100;
-	    }
-	 
-	    $input.val(value);
-	});
+  var count = 1;
+  var countEl = document.getElementById("count");
+  function plus(){
+      count++;
+      countEl.value = count;
+  }
+  function minus(){
+    if (count > 1) {
+      count--;
+      countEl.value = count;
+    }  
+  }
+
   </script>
 </head>
 <body>
@@ -167,15 +116,12 @@
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
 										<td>
-										   <div class="quantity">
-     										 <button class="plus-btn" type="button" name="button">
-        									 <img src="images/plus.jpg" alt="" />
-      										 </button>
-     										 	<input type="text" name="name" value="0">
-      										<button class="minus-btn" type="button" name="button">
-        									<img src="images/minus.jpg" alt="" />
-      										</button>
-    										</div>
+										   <div id="input_div">
+   											 <input type="text" size="25" value="1" id="count">
+    <input type="button" value="-" id="moins" onclick="minus()">
+    <input type="button" value="+" id="plus" onclick="plus()">
+</div>
+
 										</td>
 									</tr>
 									<%} %>
