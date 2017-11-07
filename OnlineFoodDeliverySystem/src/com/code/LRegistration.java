@@ -95,7 +95,6 @@ public class LRegistration extends HttpServlet {
 					System.out.println("Username Already Exist");
 				}
 			}
-
 			try {
 				Statement st = con.createStatement();
 				int r = st.executeUpdate(
