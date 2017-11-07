@@ -32,6 +32,21 @@
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 </script>
+<script src="includes/jquery-1.6.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var counter = 0;
+   
+        $(document).ready(function() {
+   
+            $("#addMe").click(function(){
+                counter++;
+   
+                $("#theCount").text(counter);
+            });
+   
+        });
+    </script>
 </head>
 <body>
 
@@ -76,7 +91,7 @@
 										<th>SR No.</th>
 										<th>Menu Item</th>
 										<th>Price</th>
-
+										<th> Quantity </th>
 									</tr>
 									<%
 					Connection con= DB_Connection.get_connection();
@@ -96,7 +111,7 @@
 										<td><%=sr%></td>
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
-
+										<td><div id="theCount"></div><br/><button id="addMe">Add 1</button></td>
 									</tr>
 									<%} %>
 
@@ -105,7 +120,7 @@
 
 							</div>
 
-
+                    <input type="submit" value="Submit" id="submit">
 
 						</div>
 					</div>
