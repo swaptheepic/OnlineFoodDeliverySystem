@@ -77,7 +77,6 @@ public class LRegistration extends HttpServlet {
 		String status = "NotApproved";
 
 		try {
-
 			String user = "";
 			Connection con1 = DB_Connection.get_connection();
 			PreparedStatement ps2 = con1.prepareStatement("SELECT * FROM  learnerreg ");
