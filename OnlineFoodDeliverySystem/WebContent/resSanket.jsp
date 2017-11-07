@@ -130,7 +130,7 @@
 </body>
 <script>
   var count = 0;
-  var countEl = document.getElementById("count1");
+  var count<%=sr%> = document.getElementById("count<%=sr%>");
   function plus(){
       count++;
       countEl.value = count;
@@ -141,6 +141,5 @@
       countEl.value = count;
     }  
   }
-
   </script>
 </html>
