@@ -2,9 +2,13 @@ package com.code;
 
 import java.io.IOException;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.io.*;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -52,33 +56,46 @@ public class LRegistration extends HttpServlet {
 		email = request.getParameter("email");
 		System.out.println("FIRST NAME====" + fname);
 		HttpSession session = request.getSession();
-		String appdate = request.getParameter("appdate");
+		
+		Date current = new Date();
+		Calendar cal = Calendar.getInstance();
+
+		SimpleDateFormat appdate1 = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String appdate = appdate1.format(cal.getTime());
+		System.out.println("Application date " + appdate);
 
 		try {
-			String user = "";
+			String user_name ="";
+			
+			System.out.println(appdate);
 			Connection con1 = DB_Connection.get_connection();
-			PreparedStatement ps2 = con1.prepareStatement("SELECT * FROM  user ");
+			PreparedStatement ps2 = con1.prepareStatement("SELECT * FROM  user;");
 			ResultSet rs2 = ps2.executeQuery();
 			String uname = request.getParameter("uname");
 			String pwd = request.getParameter("pwd");
 			System.out.println("Password====" + pwd);
 			while (rs2.next()) {
-				user = rs2.getString("uname");
-				System.out.println("user====" + user);
+
+				user_name = rs2.getString("username");
+				System.out.println("user====" + user_name);
 				System.out.println("uname====" + uname);
-				if (user.equals(uname)) {
+				if (user_name.equals(uname)) {
 					response.sendRedirect("CustReg.jsp?same");
 					// response.sendRedirect("learner.jsp");
 					System.out.println("Username Already Exist");
 				}
 			}
+			
 			try {
+
 				Statement st = con.createStatement();
-				int r = st.executeUpdate(
-						"INSERT INTO `ofd_db`.`user` (`u_id`, `name`, `username`, `password`, `address`, `ph_no`, `reg_date`) VALUES (NULL, '"
+
+				int r = st.executeUpdate("INSERT INTO `user` (`u_id`, `name`, `username`, `password`, `address`, `ph_no`, `reg_date`) VALUES (NULL, '"
 								+ fname + "', '" + uname + "', '" + pwd + "', '" + address + "', '" + mbno + "','"
 								+ appdate + "')");
-				System.out.println("insert done");
+				System.out.println("Insert done");
+
 				if (r > 0) {
 					response.sendRedirect("CustReg.jsp?success");
 					System.out.println("Registration Successful");
@@ -87,8 +104,11 @@ public class LRegistration extends HttpServlet {
 					System.out.println("Registration Failed");
 				}
 			} catch (Exception e) {
+				System.out.println(e);
 			}
 		} catch (Exception e) {
+			System.out.println(e);
 		}
+
 	}
 }
