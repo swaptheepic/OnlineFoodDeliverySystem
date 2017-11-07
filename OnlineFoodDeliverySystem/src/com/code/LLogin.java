@@ -21,7 +21,7 @@ public class LLogin extends HttpServlet {
 	Connection con = null;
 	PreparedStatement ps;
 	ResultSet rs;
-  
+
 	String username;
 	String password;
 
@@ -48,18 +48,12 @@ public class LLogin extends HttpServlet {
 			System.out.println("username value. . . .. " + username);
 			System.out.println("password value. . . .. " + password);
 
-			// ps = con.prepareStatement("select * from admin where username=? and
-			// password=?");
-
 			ps = con.prepareStatement(
 					"SELECT * FROM `user` where username='" + username + "' and password='" + password + "'");
-			// ps.setString(1, username);
-			// ps.setString(2, password);
 
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-
 				System.out.println("LOGIN SUCCESSFUL");
 
 			}
@@ -70,7 +64,6 @@ public class LLogin extends HttpServlet {
 				response.sendRedirect("learner.jsp");
 			}
 			ps.close();
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

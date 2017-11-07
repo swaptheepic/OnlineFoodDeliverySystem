@@ -68,9 +68,7 @@
 											pattern="[a-zA-Z]{1,}" id="fname" placeholder=" Name"
 											style="height: 28px" onblur="AllowAlphabet()" required /></td>
 
-
 									</tr>
-
 									<tr>
 										<td>Address</td>
 										<td><input type="text" name="address" id="address"
