@@ -1,4 +1,5 @@
 <%@page import="connection.DB_Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -31,6 +32,11 @@
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+
+
 </head>
 <body>
 
@@ -60,8 +66,7 @@
 				<div class="templatemo_post_wrapper">
 					<div class="templatemo_post">
 						<div align="center">
-							<br /> <br />
-							<br />
+							<br /> <br /> <br />
 							<div align="center">
 								<h3>
 									<h3>MENU FOR RES-1</h3>
@@ -71,51 +76,71 @@
 								<table align="center" cellpadding="5" border="1" cellspacing="5"
 									bgcolor="white">
 
+
 									<tr>
 										<th>SR No.</th>
 										<th>Menu Item</th>
 										<th>Price</th>
-
+										<th>Quantity</th>
 									</tr>
 									<%
 					Connection con= DB_Connection.get_connection();
 					PreparedStatement ps=con.prepareStatement("select * from res6");
-						ResultSet rs= ps.executeQuery();
-						String m_item,price;
-						int sr=0;
-						while(rs.next())
-						{
-							sr++;
-							m_item = rs.getString("Name");
-							price = rs.getString("Price");
-							
-							System.out.println(m_item+" "+price);
-						%>
+					ResultSet rs= ps.executeQuery();
+					String m_item,price;
+					int sr=0;
+					while(rs.next())
+					{
+						sr++;
+						m_item = rs.getString("Name");
+						price = rs.getString("Price");
+						
+						System.out.println(m_item+" "+price);
+					%>
 									<tr align="center">
 										<td><%=sr%></td>
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
+										<td>
+											<div id="input_div">
+												<input type="text" size="25" value="0" id="count"> <input
+													type="button" value="-" id="moins" onclick="minus()">
+														<input type="button" value="+" id="plus" onclick="plus()">
+											</div>
 
+										</td>
 									</tr>
 									<%} %>
 
 								</table>
-
-
 							</div>
 
-
-
+							<input type="submit" value="Submit" id="submit">
 						</div>
 					</div>
 
 
-					<br /> <br /> <br />
-					<br />
+					<br /> <br /> <br /> <br />
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
 	</div>
+</body>
+<script>
+  var count = 1;
+  var countEl = document.getElementById("count");
+  function plus(){
+      count++;
+      countEl.value = count;
+  }
+  function minus(){
+    if (count > 1) {
+      count--;
+      countEl.value = count;
+    }  
+  }
+
+  </script>
 </html>

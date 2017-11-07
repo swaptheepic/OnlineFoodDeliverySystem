@@ -32,24 +32,11 @@
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 </script>
-<script src="includes/jquery-1.6.2.js" type="text/javascript"></script>
-    
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
 
-  <script>
-  var count = 1;
-  var countEl = document.getElementById("count");
-  function plus(){
-      count++;
-      countEl.value = count;
-  }
-  function minus(){
-    if (count > 1) {
-      count--;
-      countEl.value = count;
-    }  
-  }
 
-  </script>
 </head>
 <body>
 
@@ -79,8 +66,7 @@
 				<div class="templatemo_post_wrapper">
 					<div class="templatemo_post">
 						<div align="center">
-							<br /> <br />
-							<br />
+							<br /> <br /> <br />
 							<div align="center">
 								<h3>
 									<h3>MENU FOR RES-1</h3>
@@ -95,7 +81,7 @@
 										<th>SR No.</th>
 										<th>Menu Item</th>
 										<th>Price</th>
-										<th> Quantity </th>
+										<th>Quantity</th>
 									</tr>
 									<%
 					Connection con= DB_Connection.get_connection();
@@ -116,33 +102,45 @@
 										<td><%=m_item%></td>
 										<td><%=price%>/-</td>
 										<td>
-										   <div id="input_div">
-   											 <input type="text" size="25" value="1" id="count">
-    <input type="button" value="-" id="moins" onclick="minus()">
-    <input type="button" value="+" id="plus" onclick="plus()">
-</div>
+											<div id="input_div">
+												<input type="text" size="25" value="0" id="count"> <input
+													type="button" value="-" id="moins" onclick="minus()">
+														<input type="button" value="+" id="plus" onclick="plus()">
+											</div>
 
 										</td>
 									</tr>
 									<%} %>
 
 								</table>
-
-
 							</div>
 
-                    <input type="submit" value="Submit" id="submit">
-
+							<input type="submit" value="Submit" id="submit">
 						</div>
 					</div>
 
 
-					<br /> <br /> <br />
-					<br />
+					<br /> <br /> <br /> <br />
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
 	</div>
+</body>
+<script>
+  var count = 1;
+  var countEl = document.getElementById("count");
+  function plus(){
+      count++;
+      countEl.value = count;
+  }
+  function minus(){
+    if (count > 1) {
+      count--;
+      countEl.value = count;
+    }  
+  }
+
+  </script>
 </html>
