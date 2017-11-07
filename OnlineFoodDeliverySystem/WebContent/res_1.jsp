@@ -1,4 +1,5 @@
-<%@page import="com.util.DbConnection"%>
+<%@page import="connection.DB_Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -73,23 +74,23 @@ of Students Using Data Mining Technique</h2>
 								
 						</tr>
 					<%
-					Connection con=DbConnection.getConnection();
-					PreparedStatement ps=con.prepareStatement("select * from company");
+					Connection con= DB_Connection.get_connection();
+					PreparedStatement ps=con.prepareStatement("select * from res1");
 					ResultSet rs= ps.executeQuery();
 					String m_item,price;
 					int sr=0;
 					while(rs.next())
 					{
 						sr++;
-						m_item = rs.getString("compnay");
-						price = rs.getString("SSC");
+						m_item = rs.getString("Name");
+						price = rs.getString("Price");
 						
 						System.out.println(m_item+" "+price);
 					%>
 								<tr align="center">
 								<td><%=sr%></td>
 								<td><%=m_item%></td>
-								<td><%=price%></td>
+								<td><%=price%>/-</td>
 								
 							</tr>
 					<%} %>
@@ -100,7 +101,7 @@ of Students Using Data Mining Technique</h2>
 					</div>
                     
                     
-                    
+            
                 </div>
                 </div>
 					
