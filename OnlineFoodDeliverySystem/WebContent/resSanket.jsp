@@ -129,16 +129,16 @@
 	</div>
 </body>
 <script>
-  var count = 0;
+  var count<%=sr%> = 0;
   var count<%=sr%> = document.getElementById("count<%=sr%>");
   function plus(){
-      count++;
-      countEl.value = count;
+      count<%=sr%>++;
+      count<%=sr%>.value = count<%=sr%>;
   }
   function minus(){
-    if (count > 1) {
-      count--;
-      countEl.value = count;
+    if (count<%=sr%> > 1) {
+      count<%=sr%>--;
+      count<%=sr%>.value = count<%=sr%>;
     }  
   }
   </script>
