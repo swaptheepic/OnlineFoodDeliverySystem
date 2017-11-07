@@ -103,7 +103,7 @@
 										<td><%=price%>/-</td>
 										<td>
 											<div id="input_div">
-												<input type="text" size="25" value="0" id="count<%=sr%>"> <input
+												<input type="number" size="25" value="0" id="count<%=sr%>"> <input
 													type="button" value="-" id="moins" onclick="minus()">
 														<input type="button" value="+" id="plus" onclick="plus()">
 											</div>
@@ -118,8 +118,6 @@
 							<input type="submit" value="Submit" id="submit">
 						</div>
 					</div>
-
-
 					<br /> <br /> <br /> <br />
 				</div>
 			</div>

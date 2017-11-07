@@ -103,9 +103,7 @@
 										<td><%=price%>/-</td>
 										<td>
 											<div id="input_div">
-												<input type="text" size="25" value="0" id="count"> <input
-													type="button" value="-" id="moins" onclick="minus()">
-														<input type="button" value="+" id="plus" onclick="plus()">
+												<input type="number" size="25" value="0" id="count<%=sr%>"> 
 											</div>
 
 										</td>
@@ -114,12 +112,9 @@
 
 								</table>
 							</div>
-
 							<input type="submit" value="Submit" id="submit">
 						</div>
 					</div>
-
-
 					<br /> <br /> <br /> <br />
 				</div>
 			</div>
@@ -129,18 +124,6 @@
 	</div>
 </body>
 <script>
-  var count = 1;
-  var countEl = document.getElementById("count");
-  function plus(){
-      count++;
-      countEl.value = count;
-  }
-  function minus(){
-    if (count > 1) {
-      count--;
-      countEl.value = count;
-    }  
-  }
-
+ 
   </script>
 </html>
