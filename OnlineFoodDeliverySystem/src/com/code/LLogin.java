@@ -1,3 +1,4 @@
+package com.code;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,8 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import connection.DB_Connection;
 
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/LLogin")
+public class LLogin extends HttpServlet {
 
 	Connection con = null;
 	PreparedStatement ps;
@@ -50,28 +51,16 @@ public class Login extends HttpServlet {
 			// ps = con.prepareStatement("select * from admin where username=? and
 			// password=?");
 
-			ps = con.prepareStatement("SELECT * FROM `user` where uname='" + username + "' and pwd='" + password + "'");
+			ps = con.prepareStatement(
+					"SELECT * FROM `user` where username='" + username + "' and password='" + password + "'");
 			// ps.setString(1, username);
 			// ps.setString(2, password);
 
 			rs = ps.executeQuery();
-			HttpSession session = request.getSession();
 
 			if (rs.next()) {
 
-				String sts = rs.getString("status");
-				if (sts.equals("Approved")) {
-					System.out.println("Success login");
-
-					String username = rs.getString("uname");
-
-					System.out.println("Login successfully");
-
-					response.sendRedirect("index.jsp?status=succes");
-
-				} else {
-					response.sendRedirect("learner.jsp?accept=no");
-				}
+				System.out.println("LOGIN SUCCESSFUL");
 
 			}
 
@@ -81,6 +70,8 @@ public class Login extends HttpServlet {
 				response.sendRedirect("learner.jsp");
 			}
 			ps.close();
+			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
