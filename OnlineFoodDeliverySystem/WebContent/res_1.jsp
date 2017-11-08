@@ -42,6 +42,11 @@
 </head>
 <body>
 
+	 <%
+    String user = (String)session.getAttribute("username");
+	 if (user!= null){
+    %>
+
 	<div id="templatemo_header_panel">
 		<div id="templatemo_title_section">
 			<h2>Predicting the Eligibility for Placement of Students Using
@@ -77,7 +82,7 @@
 								<br />
 								<form action="calc" method="post">
 									<table align="center" cellpadding="5" border="1"
-										cellspacing="5" bgcolor="white">
+										cellspacing="5" bgcolor="white" name="menu">
 
 
 										<tr>
@@ -102,8 +107,8 @@
 
 										<tr align="center">
 											<td><%=sr%></td>
-											<td><%=m_item%></td>
-											<td><%=price%>/-</td>
+											<td><input type="hidden" name="m_item<%=sr%>" value=<%=m_item %>></input><%=m_item %></td>
+											<td><input type="hidden" name="m_price<%=sr%>" value=<%=price %>></input><%=price%>/-</td>
 											<td>
 												
 													<div id="input_div">
@@ -156,3 +161,6 @@
 	});
 </script>
 </html>
+<%
+	 }
+%>

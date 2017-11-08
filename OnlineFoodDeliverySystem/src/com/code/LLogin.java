@@ -52,10 +52,12 @@ public class LLogin extends HttpServlet {
 					"SELECT * FROM `user` where username='" + username + "' and password='" + password + "'");
 
 			rs = ps.executeQuery();
+			HttpSession s = request.getSession();
 
 			if (rs.next()) {
 				System.out.println("LOGIN SUCCESSFUL");
-
+				String MyUser = rs.getString("username");
+				s.setAttribute("username", MyUser);
 				response.sendRedirect("restaurants.jsp");
 			}
 

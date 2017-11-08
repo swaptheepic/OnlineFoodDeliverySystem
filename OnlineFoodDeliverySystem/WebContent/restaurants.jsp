@@ -38,6 +38,9 @@ of Students Using Data Mining Technique</title>
 		</div>
     </div> <!-- end of menu -->
     
+    <%
+    String user = (String)session.getAttribute("username");
+    %>
 <<<<<<< HEAD
 	<div id="templatemo_content_container">
         <div id="templatemo_content">
