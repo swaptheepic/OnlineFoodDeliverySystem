@@ -22,7 +22,21 @@ public class DB_Connection {
 			System.out.println(e);
 		}
 		return connection;
+	}
+	public static String get_connection_test() {
 
+		Connection connection1 = null;
+		String success =null;
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/ofd_db", "root", "root");
+			success ="CONNECTION SUCCESS";
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return success;
 	}
 
 }

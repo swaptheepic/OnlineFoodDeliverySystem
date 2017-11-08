@@ -34,10 +34,8 @@ public class Calculate extends HttpServlet {
 		}
 
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		try {
 			String quantity [] = null ;
 			for(int i=0;i<10;i++) {
