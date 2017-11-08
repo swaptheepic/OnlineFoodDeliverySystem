@@ -25,6 +25,7 @@
 	content="Old Blog Template - free website template provided by TemplateMo.com" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
+
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
 <script type="text/javascript" src="tabcontent.js">
 	/***********************************************
