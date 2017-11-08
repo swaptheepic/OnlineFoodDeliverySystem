@@ -43,7 +43,7 @@
     <%
     String user = (String)session.getAttribute("username");
     %>
-<<<<<<< HEAD
+
 	<div id="templatemo_content_container">
         <div id="templatemo_content">
             <div id="templatemo_content_left">

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Random;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -41,7 +42,9 @@ public class Calculate extends HttpServlet {
 
 		HttpSession s = request.getSession();
 		String user = (String) s.getAttribute("username");
-		String SessionID = String.valueOf(s.getCreationTime());
+		
+		
+		String SessionID = String.valueOf(s.getId());
 		boolean status = false;
 
 		try {
