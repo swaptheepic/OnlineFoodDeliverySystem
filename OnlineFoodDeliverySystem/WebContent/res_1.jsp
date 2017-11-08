@@ -18,8 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>Predicting the Eligibility for Placement of Students
-	Using Data Mining Technique</title>
+<title>Online Food Delivery System</title>
 <meta name="keywords"
 	content="free css layout, old blog template, CSS, HTML" />
 <meta name="description"
@@ -49,8 +48,7 @@
 
 	<div id="templatemo_header_panel">
 		<div id="templatemo_title_section">
-			<h2>Predicting the Eligibility for Placement of Students Using
-				Data Mining Technique</h2>
+			<h2>Online Food Delivery System</h2>
 		</div>
 	</div>
 	<!-- end of templatemo header panel -->

@@ -16,8 +16,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Predicting the Eligibility for Placement of Students
-	Using Data Mining Technique</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>Online Food Delivery System</title>
 <meta name="keywords"
 	content="free css layout, old blog template, CSS, HTML" />
 <meta name="description"
@@ -26,11 +27,11 @@
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
 <script type="text/javascript" src="tabcontent.js">
-/***********************************************
-* Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
+	/***********************************************
+	 * Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+	 * This notice MUST stay intact for legal use
+	 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+	 ***********************************************/
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.js"
 	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -40,10 +41,14 @@
 </head>
 <body>
 
+	 <%
+    String user = (String)session.getAttribute("username");
+	 if (user!= null){
+    %>
+
 	<div id="templatemo_header_panel">
 		<div id="templatemo_title_section">
-			<h2>Predicting the Eligibility for Placement of Students Using
-				Data Mining Technique</h2>
+			<h2>Online Food Delivery System</h2>
 		</div>
 	</div>
 	<!-- end of templatemo header panel -->
@@ -73,54 +78,64 @@
 									<br></br>
 								</h3>
 								<br />
-								<table align="center" cellpadding="5" border="1" cellspacing="5"
-									bgcolor="white">
+								<form action="calc" method="post">
+									<table align="center" cellpadding="5" border="1"
+										cellspacing="5" bgcolor="white" name="menu">
 
 
-									<tr>
-										<th>SR No.</th>
-										<th>Menu Item</th>
-										<th>Price</th>
-										<th>Quantity</th>
-									</tr>
-									<%
-					Connection con= DB_Connection.get_connection();
-					PreparedStatement ps=con.prepareStatement("select * from res5");
-					ResultSet rs= ps.executeQuery();
-					String m_item,price;
-					int sr=0;
-					while(rs.next())
-					{
-						sr++;
-						m_item = rs.getString("Name");
-						price = rs.getString("Price");
-						
-						System.out.println(m_item+" "+price);
-					%>
-									<tr align="center">
-										<td><%=sr%></td>
-										<td><%=m_item%></td>
-										<td><%=price%>/-</td>
-										<td>
-											<div id="input_div">
-												<input type="text" size="25" value="0" id="count"> <input
-													type="button" value="-" id="moins" onclick="minus()">
-														<input type="button" value="+" id="plus" onclick="plus()">
-											</div>
+										<tr>
+											<th>SR No.</th>
+											<th>Menu Item</th>
+											<th>Price</th>
+											<th>Quantity</th>
+										</tr>
+										<%
+											Connection con = DB_Connection.get_connection();
+											PreparedStatement ps = con.prepareStatement("select * from res5");
+											ResultSet rs = ps.executeQuery();
+											String m_item, price;
+											int sr = 0;
+											while (rs.next()) {
+												sr++;
+												m_item = rs.getString("Name");
+												price = rs.getString("Price");
 
-										</td>
-									</tr>
-									<%} %>
+												System.out.println(m_item + " " + price);
+										%>
 
-								</table>
+										<tr align="center">
+											<td><%=sr%></td>
+											<td><input type="hidden" name="m_item<%=sr%>" value=<%=m_item %>></input><%=m_item %></td>
+											<td><input type="hidden" name="m_price<%=sr%>" value=<%=price %>></input><%=price%>/-</td>
+											<td>
+												
+													<div id="input_div">
+														<p>
+															<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
+																width="20" height="20" class="minus" /> 
+																<input name="qty<%=sr%>"
+																id="qty<%=sr%>" type="text" value="0" class="qty" /> 
+																<img
+																id="add1" src="http://i.imgur.com/98cvZnj.png"
+																width="20" height="20" class="add" />
+														</p>
+													</div>
+											</td>
+										</tr>
+										<%
+											}
+										%>
+
+									</table>
+								
 							</div>
 
-							<input type="submit" value="Submit" id="submit">
+							<input type="submit" value="Submit" id="submit"></input>
+							</form>
+								
 						</div>
 					</div>
 
-
-					<br /> <br /> <br /> <br />
 				</div>
 			</div>
 		</div>
@@ -129,18 +144,21 @@
 	</div>
 </body>
 <script>
-  var count = 1;
-  var countEl = document.getElementById("count");
-  function plus(){
-      count++;
-      countEl.value = count;
-  }
-  function minus(){
-    if (count > 1) {
-      count--;
-      countEl.value = count;
-    }  
-  }
-
-  </script>
+	$(function() {
+		$('.minus,.add')
+				.on(
+						'click',
+						function() {
+							var $qty = $(this).closest('p').find('.qty'), currentVal = parseInt($qty
+									.val()), isAdd = $(this).hasClass('add');
+							!isNaN(currentVal)
+									&& $qty.val(isAdd ? ++currentVal
+											: (currentVal > 0 ? --currentVal
+													: currentVal));
+						});
+	});
+</script>
 </html>
+<%
+	 }
+%>
