@@ -42,7 +42,6 @@ public class Calculate extends HttpServlet {
 			String quantity [] = null ;
 			for(int i=0;i<10;i++) {
 			quantity[i] = request.getParameter("qty"+i);
-			
 			}
 			
 		} catch (Exception e) {
