@@ -107,5 +107,8 @@ public class Calculate extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		response.sendRedirect("in.jsp");
+		
 	}
 }

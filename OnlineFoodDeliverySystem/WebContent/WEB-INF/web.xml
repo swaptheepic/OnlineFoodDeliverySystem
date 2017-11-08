@@ -33,6 +33,14 @@
     <servlet-name>four</servlet-name>
     <url-pattern>/llog</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>ninja</servlet-name>
+    <servlet-class>com.code.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ninja</servlet-name>
+    <url-pattern>/llogout</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>five</servlet-name>
     <servlet-class>com.code.AdminLogin</servlet-class>
