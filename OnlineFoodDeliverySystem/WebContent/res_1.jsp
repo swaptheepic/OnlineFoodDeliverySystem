@@ -16,6 +16,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>Predicting the Eligibility for Placement of Students
 	Using Data Mining Technique</title>
 <meta name="keywords"
@@ -26,15 +28,16 @@
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
 <script type="text/javascript" src="tabcontent.js">
-/***********************************************
-* Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
+	/***********************************************
+	 * Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+	 * This notice MUST stay intact for legal use
+	 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+	 ***********************************************/
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
 
-	
-<script src="add_to_cart.js"></script>
 
 </head>
 <body>
@@ -72,63 +75,84 @@
 									<br></br>
 								</h3>
 								<br />
-								<table align="center" cellpadding="5" border="1" cellspacing="5"
-									bgcolor="white">
+								<form action="calc" method="post">
+									<table align="center" cellpadding="5" border="1"
+										cellspacing="5" bgcolor="white">
 
 
-									<tr>
-										<th>SR No.</th>
-										<th>Menu Item</th>
-										<th>Price</th>
-										<th>Quantity</th>
-									</tr>
-									<%
-					Connection con= DB_Connection.get_connection();
-					PreparedStatement ps=con.prepareStatement("select * from res2");
-					ResultSet rs= ps.executeQuery();
-					String m_item,price;
-					int sr=0;
-					while(rs.next())
-					{
-						sr++;
-						int i=0;
-						m_item = rs.getString("Name");
-						price = rs.getString("Price");
-						
-						System.out.println(m_item+" "+price);
-						
-					%>
-									<tr align="center">
-									<input type="hidden" id="item_name" value=<%=m_item%>></input>
-									<input type="hidden" id="item_price" value=<%=price%>></input>
-										<td><%=sr%></td>
-										<td><%=m_item%></td>
-										<td><%=price%>/-</td>
-										<td>
-											<input id="quantity" type="number" value=0></input>											
-										</td>
-										<td>
-											<button onclick='addItem()'>Add item</button>											
-										</td>
-										    
-									</tr>
-									<%} %>
+										<tr>
+											<th>SR No.</th>
+											<th>Menu Item</th>
+											<th>Price</th>
+											<th>Quantity</th>
+										</tr>
+										<%
+											Connection con = DB_Connection.get_connection();
+											PreparedStatement ps = con.prepareStatement("select * from res1");
+											ResultSet rs = ps.executeQuery();
+											String m_item, price;
+											int sr = 0;
+											while (rs.next()) {
+												sr++;
+												m_item = rs.getString("Name");
+												price = rs.getString("Price");
 
-								</table>
+												System.out.println(m_item + " " + price);
+										%>
+
+										<tr align="center">
+											<td><%=sr%></td>
+											<td><%=m_item%></td>
+											<td><%=price%>/-</td>
+											<td>
+												
+													<div id="input_div">
+														<p>
+															<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
+																width="20" height="20" class="minus" /> 
+																<input name="qty<%=sr%>"
+																id="qty<%=sr%>" type="text" value="0" class="qty" /> 
+																<img
+																id="add1" src="http://i.imgur.com/98cvZnj.png"
+																width="20" height="20" class="add" />
+														</p>
+													</div>
+											</td>
+										</tr>
+										<%
+											}
+										%>
+
+									</table>
+								
 							</div>
 
-							<!-- <input type="submit" value="Submit" id="submit"> -->
+							<input type="submit" value="Submit" id="submit"></input>
+							</form>
+								
 						</div>
 					</div>
-				<br /> <br /> <br /> <br />
+
 				</div>
 			</div>
 		</div>
-		  <div id="cart">
-		  
 	</div>
 	</div>
 	</div>
 </body>
-
+<script>
+	$(function() {
+		$('.minus,.add')
+				.on(
+						'click',
+						function() {
+							var $qty = $(this).closest('p').find('.qty'), currentVal = parseInt($qty
+									.val()), isAdd = $(this).hasClass('add');
+							!isNaN(currentVal)
+									&& $qty.val(isAdd ? ++currentVal
+											: (currentVal > 0 ? --currentVal
+													: currentVal));
+						});
+	});
+</script>
 </html>

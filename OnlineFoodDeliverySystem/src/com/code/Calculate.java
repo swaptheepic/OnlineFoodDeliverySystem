@@ -39,25 +39,12 @@ public class Calculate extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			String table_id = request.getParameter("table_id");
-
-			ps = con.prepareStatement("SELECT * FROM `" + table_id + "`");
-
-			rs = ps.executeQuery();
-
-			if (rs.next()) {
-				
-
-				response.sendRedirect("restaurants.jsp");
+			String quantity [] = null ;
+			for(int i=0;i<10;i++) {
+			quantity[i] = request.getParameter("qty"+i);
+			
 			}
-
-			else {
-				System.out.println("Login failed");
-
-				response.sendRedirect("login.jsp");
-			}
-			ps.close();
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
