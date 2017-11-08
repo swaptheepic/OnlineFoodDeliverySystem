@@ -35,8 +35,7 @@
 
 	<div id="templatemo_header_panel">
 		<div id="templatemo_title_section">
-			<h2>Predicting the Eligibility for Placement of Students Using
-				Data Mining Technique</h2>
+			<h2>Online Food Delivery System</h2>
 		</div>
 	</div>
 	<!-- end of templatemo header panel -->
@@ -57,7 +56,7 @@
 				<div class="templatemo_post_wrapper">
 					<div class="templatemo_post">
 						<div align="center">
-							<h3>Learner Registration</h3>
+							<h3>Customer Registration</h3>
 							<br />
 							<form action="lreg" name="ureg" method="post">
 

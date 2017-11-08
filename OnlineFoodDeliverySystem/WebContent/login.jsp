@@ -16,8 +16,7 @@ if(request.getParameter("success")!=null)
 }
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Predicting the Eligibility for Placement
-of Students Using Data Mining Technique</title>
+<title>Online Food Delivery System</title>
 <meta name="keywords" content="free css layout, old blog template, CSS, HTML" />
 <meta name="description" content="Old Blog Template - free website template provided by TemplateMo.com" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -35,7 +34,7 @@ of Students Using Data Mining Technique</title>
 
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
-				<h2>Online food delivery system</h2>
+				<h2>Online Food Delivery System</h2>
 	  </div>
     </div> <!-- end of templatemo header panel -->
     
