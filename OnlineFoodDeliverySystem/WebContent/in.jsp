@@ -1,6 +1,7 @@
+<%@page import="connection.DB_Connection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="comm.util.DbConnection"%>
+
 
 
 <%@page import="java.text.DateFormat"%>
@@ -16,6 +17,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+   <%
+    String user = (String)session.getAttribute("username");
+	 if (user!= null){
+		 HttpSession s = request.getSession();
+    %>
         <style>
             body
             {
@@ -131,35 +137,47 @@
 									<tr>
 										<th>SR No.</th>
 										<th>Menu Item</th>
-										<th>Price</th>
+										
 										<th>Quantity</th>
 										<th>Total </th>
 									</tr>
 									<%
 									
-									Connection con=	DbConnection.getConnection();
+									Connection con=	DB_Connection.get_connection();
+									
 									PreparedStatement ps=con.prepareStatement("select * from orders");
+									PreparedStatement total=con.prepareStatement("select * from total_bill");
 									ResultSet rs= ps.executeQuery();
+									ResultSet total_amount= total.executeQuery();
 									String order_id;
-									String m_item,price,qty,tot;
+									String m_item=null,price=null,qty=null,tot=null;
 									int sr=0;
 
 									while(rs.next())
 									{
 										sr++;
+										if(rs.getString("order_id").equals(String.valueOf(s.getCreationTime()))){
 										order_id=rs.getString("order_id");
-										m_item = rs.getString("Name");
-										price = rs.getString("Price");
-										qty = rs.getString("Quantity");
-										tot = rs.getString("Tot");
-										System.out.println(m_item+" "+price);
+										m_item = rs.getString("menu");
+										//price = rs.getString("Price");
+										qty = rs.getString("qty");
+										while(total_amount.next())
+										{
+											if(rs.getString("order_id").equals(String.valueOf(s.getCreationTime()))){
+											tot = total_amount.getString("total");
+											}
+											}
+										System.out.println(m_item+" "/*+price*/);
+										}
+										
+										
 									%>
 					
 					
 									<tr align="center">
 										<td><%=sr%></td>
 										<td><%=m_item%></td>
-										<td><%=price%>/-</td>
+										
 										<td><%=qty%></td>
 										<td><%=tot%></td>
 										
@@ -182,4 +200,8 @@
         </div>
        
   </body>
+ 
 </html>
+ <%
+	 }
+  %>

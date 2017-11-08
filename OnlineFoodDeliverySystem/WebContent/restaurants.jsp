@@ -32,7 +32,10 @@ of Students Using Data Mining Technique</title>
     	<div id="templatemo_menu_section">
             <ul>
                 <li><a href="index.jsp" class="active">Home</a></li>
-						<li><a href="login.jsp">Login</a></li>
+                		<form action="llogout" method="post">
+    						<input type="submit" value="Logout" />
+						</form>
+						<li><a href="index.jsp">Logout</a></li>
 						<li><a href="about.jsp">About</a></li>                  
             </ul> 
 		</div>
@@ -73,10 +76,3 @@ of Students Using Data Mining Technique</title>
                 </div>
                 </div>
                 </html>
-=======
-    In res
-    
-    
-</body>
-</html>
->>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
