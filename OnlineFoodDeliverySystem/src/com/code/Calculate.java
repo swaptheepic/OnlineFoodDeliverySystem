@@ -61,6 +61,7 @@ public class Calculate extends HttpServlet {
 				System.out.print(" " + request.getParameter("m_price" + i));
 				System.out.println(" " + request.getParameter("qty" + i));
 				String quantity = request.getParameter("qty" + i);
+				String restaurant = request.getParameter("rest1");
 
 				if (Integer.parseInt(request.getParameter("qty" + i)) >= 1) {
 					total += Integer.parseInt(request.getParameter("m_price" + i))
@@ -72,10 +73,10 @@ public class Calculate extends HttpServlet {
 					Statement st = con.createStatement();
 
 					int r = st.executeUpdate(
-							"INSERT INTO `orders` (`order_id`, `user_id`, `status`, `menu`, `qty`) VALUES ('"
-									+ SessionID + "' , '" + user + "', '" + status + "', '" + menu + "', '" + quantity
+							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
+									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
 									+ "' )");
-					System.out.println("Insert done");
+					
 
 					if (r > 0) {
 						System.out.println("Insertion Successful");
@@ -111,7 +112,7 @@ public class Calculate extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		response.sendRedirect("in.jsp");
+		response.sendRedirect("in.jsp");	
 		
 	}
 }

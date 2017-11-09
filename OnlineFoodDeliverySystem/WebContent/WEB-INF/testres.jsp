@@ -44,9 +44,8 @@
 </head>
 <body>
 
-	 <%
-    String user = (String)session.getAttribute("username");
-	 if (user!= null){
+	<%
+     
     %>
 
 	<div id="templatemo_header_panel">
@@ -82,7 +81,7 @@
 								</h3>
 								<br />
 								<form action="calc" method="post">
-									<input type="hidden" name="rest3" value="rest3"></input>
+									<input type="hidden" name="rest1" value="rest1"></input>
 									<table align="center" cellpadding="5" border="1"
 										cellspacing="5" bgcolor="white" name="menu">
 
@@ -94,9 +93,8 @@
 											<th>Quantity</th>
 										</tr>
 										<%
-											Connection con = DB_Connection.get_connection();
-											PreparedStatement ps = con.prepareStatement("select * from res3");
-											ResultSet rs = ps.executeQuery();
+											
+											ResultSet rs = (ResultSet)request.getAttribute("resultSet");
 											String m_item, price;
 											int sr = 0;
 											while (rs.next()) {
@@ -133,13 +131,14 @@
 									</table>
 								
 							</div>
-
+							<%
+							
+								
+							%>
 							<input type="submit" value="Submit" id="submit"></input>
 							</form>
-								
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -164,5 +163,5 @@
 </script>
 </html>
 <%
-	 }
+	 
 %>

@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
@@ -10,6 +11,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
+
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,7 +28,6 @@
 	content="Old Blog Template - free website template provided by TemplateMo.com" />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
-
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
 <script type="text/javascript" src="tabcontent.js">
 	/***********************************************
@@ -37,7 +39,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"
 	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 	crossorigin="anonymous"></script>
-
 
 
 </head>
@@ -76,11 +77,12 @@
 							<br /> <br /> <br />
 							<div align="center">
 								<h3>
-									<h3>MENU FOR RES-1</h3>
+									<h3>MENU FOR RES-2</h3>
 									<br></br>
 								</h3>
 								<br />
 								<form action="calc" method="post">
+									<input type="hidden" name="rest6" value="rest6"></input>
 									<table align="center" cellpadding="5" border="1"
 										cellspacing="5" bgcolor="white" name="menu">
 

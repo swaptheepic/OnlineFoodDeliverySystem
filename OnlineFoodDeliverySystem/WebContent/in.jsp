@@ -158,38 +158,25 @@ p2 {
 									while(rs.next())
 									{
 										sr++;
-										//if(rs.getString("order_id").equals(String.valueOf(s.getCreationTime()))){
 										order_id=rs.getString("order_id");
 										m_item = rs.getString("menu");
-										//price = rs.getString("Price");
 										qty = rs.getString("qty");
 										while(total_amount.next())
 										{
-											//if(rs.getString("order_id").equals(String.valueOf(s.getCreationTime()))){
+											
 											tot = total_amount.getString("total");
-											}
-											//}
+										}
+											
 										System.out.println(m_item+" "/*+price*/);
-										//}
-										
-										
 									%>
-
-
 				<tr align="center">
 					<td><%=sr%></td>
 					<td><%=m_item%></td>
-
 					<td><%=qty%></td>
-					
-
 				</tr>
-
 <%} %>
 			</table>
 			<br>
-
-			
 			<text align="right">
 			<p2>TOTAL COST: <%=tot%></p2></text>
 
