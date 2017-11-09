@@ -15,13 +15,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <%
-    String user = (String)session.getAttribute("username");
-	 if (user!= null){
-		 HttpSession s = request.getSession();
-    %>
+	String user = (String) session.getAttribute("username");
+	if (user != null) {
+		HttpSession s = request.getSession();
+%>
 <style>
 body {
 	display: flex;
@@ -119,10 +120,10 @@ p2 {
 		<p1>ONLINE FOOD DELIVERY SYSTEM</p1>
 		<hr>
 		<hr>
-		
+
 		<form action="llogout" method="post">
-    						<input type="submit" value="Logout" />
-						</form>
+			<input type="submit" value="Logout" />
+		</form>
 
 	</div>
 	<div id="main-content">
@@ -132,11 +133,9 @@ p2 {
 				<p>INVOICE</p>
 			</center>
 
-			<text align="left">
-			<p2>Order ID</p2></text>
+			<text align="left"> <p2>Order ID</p2></text>
 			<br>
-			<text align="left">
-			<p2>Address </p2></text>
+			<text align="left"> <p2>Address </p2></text>
 			<br>
 			<table align="center" cellpadding="5" border="1" cellspacing="5"
 				bgcolor="white">
@@ -145,137 +144,134 @@ p2 {
 					<th>Menu Item</th>
 
 					<th>Quantity</th>
-					
+
 				</tr>
 				<%
-									
-									Connection con=	DB_Connection.get_connection();
-									
-									PreparedStatement ps=con.prepareStatement("select * from orders where order_id ='"+String.valueOf(s.getId())+"'");
-									PreparedStatement total=con.prepareStatement("select * from total_bill where order_id = '"+String.valueOf(s.getId())+"'");
-									ResultSet rs= ps.executeQuery();
-									ResultSet total_amount= total.executeQuery();
-									String order_id;
-									String m_item=null,price=null,qty=null,tot=null;
-									int res1_orders = 0;
-									int sr=0;
+					Connection con = DB_Connection.get_connection();
 
-									while(rs.next())
-									{
-										sr++;
-										order_id=rs.getString("order_id");
-										m_item = rs.getString("menu");
-										qty = rs.getString("qty");
-										while(total_amount.next())
-										{
-											
-											tot = total_amount.getString("total");
-										}
-											
-										System.out.println(m_item+" "/*+price*/);
-									%>
+						PreparedStatement ps = con
+								.prepareStatement("select * from orders where order_id ='" + String.valueOf(s.getId()) + "'");
+						PreparedStatement total = con.prepareStatement(
+								"select * from total_bill where order_id = '" + String.valueOf(s.getId()) + "'");
+						ResultSet rs = ps.executeQuery();
+						ResultSet total_amount = total.executeQuery();
+						String order_id;
+						String m_item = null, price = null, qty = null, tot = null;
+						int res1_orders = 0;
+						int sr = 0;
+
+						while (rs.next()) {
+							sr++;
+							order_id = rs.getString("order_id");
+							m_item = rs.getString("menu");
+							qty = rs.getString("qty");
+							while (total_amount.next()) {
+
+								tot = total_amount.getString("total");
+							}
+
+							System.out.println(m_item + " "/*+price*/);
+				%>
 				<tr align="center">
 					<td><%=sr%></td>
 					<td><%=m_item%></td>
 					<td><%=qty%></td>
 				</tr>
-<%
+				<%
+					if (rs.getString("rest_id").equals("rest1")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
 
-									if(rs.getString("rest_id").equals("rest1"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									}
-									
-									else if(rs.getString("rest_id").equals("rest2"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									} 
-									
-									else if(rs.getString("rest_id").equals("rest3"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									} 
+							else if (rs.getString("rest_id").equals("rest2")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
 
-									else if(rs.getString("rest_id").equals("rest4"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									} 
+							else if (rs.getString("rest_id").equals("rest3")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
 
-									else if(rs.getString("rest_id").equals("rest5"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									} 
+							else if (rs.getString("rest_id").equals("rest4")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
 
-									else if(rs.getString("rest_id").equals("rest6"))
-									{
-										if(rs.getString("status").equals("false"))
-										{
-											res1_orders++;
-										}
-										else
-										{
-											res1_orders--;
-										}
-									} 
-									
-									}
-%>
+							else if (rs.getString("rest_id").equals("rest5")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
+
+							else if (rs.getString("rest_id").equals("rest6")) {
+								if (rs.getString("status").equals("false")) {
+									res1_orders++;
+								} else {
+									res1_orders--;
+								}
+							}
+
+						}
+				%>
 			</table>
 			<br>
-			<text align="right">
-			<p2>TOTAL COST: <%=tot%></p2></text>
+			<text align="right"> <p2>TOTAL COST: <%=tot%></p2></text>
+
+			<p2 >Time to deliver iss: <%=res1_orders%></p2>
+			<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
+		
 			
-			<p2>Time to deliver iss: <%=res1_orders%></p2></text>
-
+			</text>
 			<%
-					
-					%>
-
+	}	
+			%>
+			<div id="changeText">
+			
+			</div>
 		</div>
 
 
 	</div>
-	
-	
+<script>
+function nextMsg() {
+	var x = document.getElementById("bloop").value;
+	x = x * 1000;
+	console.log(x);
+    if (messages.length == 0) {
+        alert("YOUR ORDER HAS BEEN DELIVERED");
+    } else {
+        $('#changeText').html(messages.pop()).fadeIn(500).delay(x).fadeOut(500, nextMsg);
+    }
+};
+
+var messages = [
+    "Order Confirmed",
+    "In Kitchen!",
+    "Order ready",
+    "Delicious food On the WAY!!",
+    "Delivered"
+].reverse();
+
+$('#message').hide();
+nextMsg();
+</script>
+
 
 </body>
 
 </html>
-<%
-	 }
-  %>
