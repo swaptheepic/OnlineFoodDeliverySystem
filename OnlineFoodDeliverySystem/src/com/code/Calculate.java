@@ -71,7 +71,7 @@ public class Calculate extends HttpServlet {
 				try {
 
 					Statement st = con.createStatement();
-					
+					if(Integer.parseInt(quantity)>0) {
 					int r = st.executeUpdate(
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
@@ -83,6 +83,9 @@ public class Calculate extends HttpServlet {
 					} else {
 						System.out.println("Insertion Failed");
 					}
+					
+					}
+					
 				} catch (Exception e) {
 					System.out.println(e);
 				}
