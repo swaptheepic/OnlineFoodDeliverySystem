@@ -231,7 +231,7 @@ p2 {
 			</table>
 			<br>
 			<text align="right"> <p2>TOTAL COST: <%=tot%></p2></text>
-
+      
 			<p2 >Time to deliver iss: <%=res1_orders%></p2>
 			<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
 		
