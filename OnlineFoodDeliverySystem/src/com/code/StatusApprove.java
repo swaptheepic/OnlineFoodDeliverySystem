@@ -51,17 +51,15 @@ public class StatusApprove extends HttpServlet {
 			while(rs.next())
 			{
 				order_id=rs.getString("order_id");
-				if(lid.equals(order_id))
+				if(rs.getString("order_id").equals(order_id))
 				{
 					Statement st1=con.createStatement();
 					st1.executeUpdate("update orders set status = 'true'");
-					System.out.println("Update Succefully");
-					response.sendRedirect("CustRequest.jsp?update=yes");
+					
 				}
 			}
-			Statement st1 = con.createStatement();
-			
-			
+			System.out.println("Update Succefully");
+			response.sendRedirect("CustRequest.jsp?update=yes");
 			
 		}catch(Exception e){
 			System.out.println("ccc "+e);

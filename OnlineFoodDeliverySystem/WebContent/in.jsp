@@ -196,7 +196,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res1_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
@@ -204,7 +204,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res2_orders++;
 								} else {
-									res2_orders--;
+									
 								}
 							}
 
@@ -212,7 +212,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res3_orders++;
 								} else {
-									res3_orders--;
+									
 								}
 							}
 
@@ -220,7 +220,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res4_orders++;
 								} else {
-									res4_orders--;
+									
 								}
 							}
 
@@ -228,7 +228,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res5_orders++;
 								} else {
-									res5_orders--;
+									
 								}
 							}
 
@@ -236,7 +236,7 @@ p2 {
 								if (timetod.getString("status").equals("false")) {
 									res6_orders++;
 								} else {
-									res6_orders--;
+									
 								}
 							}
 
