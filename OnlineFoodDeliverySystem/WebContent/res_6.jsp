@@ -82,7 +82,7 @@
 								</h3>
 								<br />
 								<form action="calc" method="post">
-									<input type="hidden" name="rest6" value="rest6"></input>
+									<input type="hidden" name="rest" value="rest6"></input>
 									<table align="center" cellpadding="5" border="1"
 										cellspacing="5" bgcolor="white" name="menu">
 
