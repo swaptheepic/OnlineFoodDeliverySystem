@@ -119,6 +119,10 @@ p2 {
 		<p1>ONLINE FOOD DELIVERY SYSTEM</p1>
 		<hr>
 		<hr>
+		
+		<form action="llogout" method="post">
+    						<input type="submit" value="Logout" />
+						</form>
 
 	</div>
 	<div id="main-content">
@@ -153,6 +157,7 @@ p2 {
 									ResultSet total_amount= total.executeQuery();
 									String order_id;
 									String m_item=null,price=null,qty=null,tot=null;
+									int res1_orders = 0;
 									int sr=0;
 
 									while(rs.next())
@@ -174,11 +179,88 @@ p2 {
 					<td><%=m_item%></td>
 					<td><%=qty%></td>
 				</tr>
-<%} %>
+<%
+
+									if(rs.getString("rest_id").equals("rest1"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									}
+									
+									else if(rs.getString("rest_id").equals("rest2"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									} 
+									
+									else if(rs.getString("rest_id").equals("rest3"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									} 
+
+									else if(rs.getString("rest_id").equals("rest4"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									} 
+
+									else if(rs.getString("rest_id").equals("rest5"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									} 
+
+									else if(rs.getString("rest_id").equals("rest6"))
+									{
+										if(rs.getString("status").equals("false"))
+										{
+											res1_orders++;
+										}
+										else
+										{
+											res1_orders--;
+										}
+									} 
+									
+									}
+%>
 			</table>
 			<br>
 			<text align="right">
 			<p2>TOTAL COST: <%=tot%></p2></text>
+			
+			<p2>Time to deliver iss: <%=res1_orders%></p2></text>
 
 			<%
 					
@@ -188,6 +270,8 @@ p2 {
 
 
 	</div>
+	
+	
 
 </body>
 

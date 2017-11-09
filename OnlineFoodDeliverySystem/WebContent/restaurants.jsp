@@ -34,7 +34,7 @@
                 		<form action="llogout" method="post">
     						<input type="submit" value="Logout" />
 						</form>
-						<li><a href="index.jsp">Logout</a></li>
+						
 						<li><a href="about.jsp">About</a></li>                  
             </ul> 
 		</div>

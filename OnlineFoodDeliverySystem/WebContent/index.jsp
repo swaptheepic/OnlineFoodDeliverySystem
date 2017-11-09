@@ -32,7 +32,7 @@ of Students Using Data Mining Technique</title>
     	<div id="templatemo_menu_section">
             <ul>
                 <li><a href="index.jsp" class="active">Home</a></li>
-						<li><a href="./Res">Login</a></li>
+						<li><a href="login.jsp">Login</a></li>
 						<li><a href="about.jsp">About</a></li>                  
             </ul> 
 		</div>

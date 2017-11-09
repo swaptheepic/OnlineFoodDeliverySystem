@@ -61,7 +61,7 @@ public class Calculate extends HttpServlet {
 				System.out.print(" " + request.getParameter("m_price" + i));
 				System.out.println(" " + request.getParameter("qty" + i));
 				String quantity = request.getParameter("qty" + i);
-				String restaurant = request.getParameter("rest1");
+				String restaurant = request.getParameter("rest");
 
 				if (Integer.parseInt(request.getParameter("qty" + i)) >= 1) {
 					total += Integer.parseInt(request.getParameter("m_price" + i))
