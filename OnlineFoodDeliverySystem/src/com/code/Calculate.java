@@ -46,6 +46,7 @@ public class Calculate extends HttpServlet {
 		
 		String SessionID = String.valueOf(s.getId());
 		boolean status = false;
+		int r = 0;
 
 		try {
 
@@ -54,6 +55,7 @@ public class Calculate extends HttpServlet {
 
 			int total = 0;
 			int counter = 0;
+			
 
 			for (int i = 1; i < 5; i++) {
 				System.out.print(" " + request.getParameter("m_item" + i));
@@ -69,14 +71,15 @@ public class Calculate extends HttpServlet {
 				}
 				
 				try {
-
+					
 					Statement st = con.createStatement();
 					if(Integer.parseInt(quantity)>0) {
-					int r = st.executeUpdate(
+						
+					r = st.executeUpdate(
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
 									+ "' )");
-					
+						}
 
 					if (r > 0) {
 						System.out.println("Insertion Successful");
@@ -84,7 +87,7 @@ public class Calculate extends HttpServlet {
 						System.out.println("Insertion Failed");
 					}
 					
-					}
+					
 					
 				} catch (Exception e) {
 					System.out.println(e);
@@ -98,7 +101,7 @@ public class Calculate extends HttpServlet {
 
 				Statement st = con.createStatement();
 
-				int r = st.executeUpdate("INSERT INTO `total_bill` (`order_id`, `total`) VALUES ('" + SessionID + "' ,'"
+				r = st.executeUpdate("INSERT INTO `total_bill` (`order_id`, `total`) VALUES ('" + SessionID + "' ,'"
 						+ total + "' )");
 				System.out.println("Total Inserted done");
 
