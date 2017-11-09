@@ -21,7 +21,6 @@ of Students Using Data Mining Technique</title>
 </script>
 </head>
 <body>
-
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
 				<h2>Online food delivery system</h2>

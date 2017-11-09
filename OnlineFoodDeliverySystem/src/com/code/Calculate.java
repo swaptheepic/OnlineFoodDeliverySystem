@@ -71,7 +71,7 @@ public class Calculate extends HttpServlet {
 				try {
 
 					Statement st = con.createStatement();
-
+					
 					int r = st.executeUpdate(
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
