@@ -190,7 +190,7 @@ p2 {
 						}				
 						
 						PreparedStatement timer = con.prepareStatement("select * from orders");
-						ResultSet timetod = ps.executeQuery();
+						ResultSet timetod = timer.executeQuery();
 						while (timetod.next()) {
 							if (timetod.getString("rest_id").equals("rest1")) {
 								if (timetod.getString("status").equals("false")) {
