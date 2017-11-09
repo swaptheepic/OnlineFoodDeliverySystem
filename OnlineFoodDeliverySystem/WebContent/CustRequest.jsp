@@ -42,7 +42,7 @@ if(request.getParameter("update")!=null)
             <ul>
                 <li><a href="Home.jsp">Home</a></li>
 						
-						<li><a href="logout">Logout</a></li>                    
+						<li><a href="index.jsp">Logout</a></li>                    
             </ul> 
 		</div>
     </div> <!-- end of menu -->
