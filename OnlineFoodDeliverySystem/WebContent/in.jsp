@@ -118,12 +118,15 @@ p2 {
 				alt="Ericsson" style="width: 304px; height: 100px;">
 		</center>
 		<p1>ONLINE FOOD DELIVERY SYSTEM</p1>
+		<align="right">
+		<form action="llogout" method="post">
+					<input type="submit" value="Logout" />
+				</form>
+				</align>
 		<hr>
 		<hr>
 
-		<form action="llogout" method="post">
-			<input type="submit" value="Logout" />
-		</form>
+		
 
 	</div>
 	<div id="main-content">

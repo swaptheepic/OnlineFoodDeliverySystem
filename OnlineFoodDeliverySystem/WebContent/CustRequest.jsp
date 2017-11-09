@@ -1,7 +1,7 @@
+<%@page import="connection.DB_Connection"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="com.util.DbConnection"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -33,15 +33,14 @@ if(request.getParameter("update")!=null)
 %>
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
-				<h2>Predicting the Eligibility for Placement
-of Students Using Data Mining Technique</h2>
+				<h2>Online Food Delivery System</h2>
 	  </div>
     </div> <!-- end of templatemo header panel -->
     
     <div id="templatemo_menu_panel">
     	<div id="templatemo_menu_section">
             <ul>
-                <li><a href="adminHome.jsp">Home</a></li>
+                <li><a href="Home.jsp">Home</a></li>
 						
 						<li><a href="logout">Logout</a></li>                    
             </ul> 
@@ -60,44 +59,36 @@ of Students Using Data Mining Technique</h2>
 						<table align="center" border="0" cellpadding="10" cellspacing="15">
 							<tr>
 								<th>Sr.No</th>
-								<th>Faculty Name</th>
-								<th>Date Of Birth</th>
-								<th>Address</th>
-								<th>Branch</th>
+								<th>Order ID</th>
+								<th>Status</th>
 								
 								<th>Action</th>
 							</tr>
 							<%
 								try {
-									Connection con = DbConnection.getConnection();
+									Connection con = DB_Connection.get_connection();
 									PreparedStatement ps = con
-											.prepareStatement("SELECT * FROM learnerreg where status='NotApproved'");
+											.prepareStatement("SELECT * FROM orders where status='false'");
 									ResultSet rs = ps.executeQuery();
-									String fname, lname, mname, dob, address, branch;
+									String order_id, status,user_id;
 									int srno = 0;
 									String id;
 									while (rs.next()) {
 										srno++;
-										fname = rs.getString("fname");
-										mname = rs.getString("mname");
-										lname = rs.getString("lname");
+										order_id=rs.getString("order_id");
+										user_id=rs.getString("user_id");
+										status=rs.getString("status");
 
-										dob = rs.getString("dob");
-										address = rs.getString("address");
-										id=rs.getString("id");
 										
-
-										branch = rs.getString("branch");
 							%>
 
 							<tr align="center">
 								<td><%=srno%></td>
-								<td><%=fname%>&nbsp;&nbsp;<%=mname%>&nbsp;&nbsp;<%=lname%></td>
-								<td><%=dob%></td>
-								<td><%=address%></td>
-								<td><%=branch%></td>
+								<td><%=order_id%></td>
+								<td><%=status%></td>
 								
-								<td><a href="useract?val=<%=id%>">Accept</a></td>
+								
+								<td><a href="useract?val=<%=order_id%>">Accept</a></td>
 							</tr>
 
 
@@ -123,8 +114,7 @@ of Students Using Data Mining Technique</h2>
 							
 							
 							<td/>
-							<td><a href="alearner.jsp" style="color: blue;">Back </a></td>
-							<td/>
+							
 							<td/>
 							</tr>
 						</table>

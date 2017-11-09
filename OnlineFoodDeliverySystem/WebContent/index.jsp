@@ -33,6 +33,7 @@ of Students Using Data Mining Technique</title>
             <ul>
                 <li><a href="index.jsp" class="active">Home</a></li>
 						<li><a href="login.jsp">Login</a></li>
+						<li><a href="admin.jsp">CookLogin</a></li>
 						<li><a href="about.jsp">About</a></li>                  
             </ul> 
 		</div>

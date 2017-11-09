@@ -31,7 +31,7 @@
     	<div id="templatemo_menu_section">
             <ul>
                 <li><a href="index.jsp" class="active">Home</a></li>
-						<li><a href="login.jsp">Login</a></li>
+					
 						                  
             </ul> 
 		</div>
@@ -44,7 +44,7 @@
                 <div class="templatemo_post_wrapper">
                 <div class="templatemo_post">
                     <div align="center">
-						<h3>Admin Login</h3>
+						<h3>Cook Login</h3>
 						<br />
 
 						<form action="alog" method="post">

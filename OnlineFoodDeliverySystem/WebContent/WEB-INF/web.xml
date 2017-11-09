@@ -43,7 +43,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>five</servlet-name>
-    <servlet-class>com.code.AdminLogin</servlet-class>
+    <servlet-class>com.code.adminLogin</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>five</servlet-name>
@@ -67,7 +67,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>eight</servlet-name>
-    <servlet-class>com.code.UserAct</servlet-class>
+    <servlet-class>com.code.StatusApprove</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>eight</servlet-name>

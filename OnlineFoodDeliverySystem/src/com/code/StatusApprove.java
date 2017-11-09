@@ -4,6 +4,7 @@ package com.code;
 import java.io.IOException; 
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -15,9 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.ha.backend.Sender;
-
-import com.util.DbConnection;
+import connection.DB_Connection;
 
 
 
@@ -42,39 +41,31 @@ public class StatusApprove extends HttpServlet {
 		try{
 			String lid=request.getParameter("val");
 			
-			//String FileSecretKey = request.getParameter("FileSecretKey");
-			//int UserID = Integer.parseInt(request.getParameter("val"));
+			
 			System.out.println("u id is "+lid);
 			
-			Connection con = DbConnection.getConnection();
-			//Statement st = con.createStatement();
+			Connection con = DB_Connection.get_connection();
+			PreparedStatement ps=con.prepareStatement("select * from orders");
+			ResultSet rs=ps.executeQuery();
+			String order_id;
+			while(rs.next())
+			{
+				order_id=rs.getString("order_id");
+				if(lid.equals(order_id))
+				{
+					Statement st1=con.createStatement();
+					st1.executeUpdate("update orders set status = 'true'");
+					System.out.println("Update Succefully");
+					response.sendRedirect("CustRequest.jsp?update=yes");
+				}
+			}
 			Statement st1 = con.createStatement();
-			
-			/*ResultSet rs = st.executeQuery("select * from user where id="+UserID);
-			
-			if(rs.next()){
-			*/	
-				
-				//String Usertype = rs.getString("Usertype");
-				
-				
-				st1.executeUpdate("update facultyreg set Status='Approved' where id="+lid);
-				System.out.println("Update Succefully");
-				response.sendRedirect("CustRequest.jsp?update=yes");
-			//}
-			
-			
 			
 			
 			
 		}catch(Exception e){
 			System.out.println("ccc "+e);
-		}finally{
-			
-			
 		}
-		
-		
 	}
 
 

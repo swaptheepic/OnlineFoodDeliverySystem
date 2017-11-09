@@ -13,11 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import connection.DB_Connection;
 
-import com.util.DbConnection;
 
-
-@WebServlet("/AdminLogin")
+@WebServlet("/adminLogin")
 public class adminLogin extends HttpServlet {
 	Connection con = null;
 	PreparedStatement ps;
@@ -31,7 +30,7 @@ public class adminLogin extends HttpServlet {
 	{
 		try {
 
-			con = DbConnection.getConnection();
+			con = DB_Connection.get_connection();
 			
 			System.out.println("connection is " + con);
 		} catch (Exception e1) {
@@ -52,11 +51,8 @@ public class adminLogin extends HttpServlet {
 			System.out.println("username value. . . .. " + username);
 			System.out.println("password value. . . .. " + password);
 			
-			//ps = con.prepareStatement("select * from admin where username=? and password=?");
 
-			ps = con.prepareStatement("SELECT * FROM admin where uname='"+username+"' and pwd='"+password+"'");
-			//ps.setString(1, username);
-			//ps.setString(2, password);
+			ps = con.prepareStatement("SELECT * FROM cook where uname='"+username+"' and pwd='"+password+"'");
 
 			rs = ps.executeQuery();
 			HttpSession session = request.getSession();
@@ -69,6 +65,7 @@ public class adminLogin extends HttpServlet {
 
 				session.setAttribute("username", username);
 				response.sendRedirect("CustRequest.jsp?status=succes");
+				
 			}
 
 			else {
