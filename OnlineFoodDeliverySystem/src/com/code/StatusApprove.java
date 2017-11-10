@@ -41,6 +41,7 @@ public class StatusApprove extends HttpServlet {
 		try{
 			String o_id=request.getParameter("val1");
 			String m_id=request.getParameter("val2");
+			String username=request.getParameter("val3");
 			
 			
 			System.out.println("Order is  "+o_id); 
@@ -68,9 +69,11 @@ public class StatusApprove extends HttpServlet {
             	      preparedStmt.setString(3, m_id);
             	      preparedStmt.executeUpdate();
             	      System.out.println("Update Succesfully");
-            		response.sendRedirect("CustRequest.jsp?update=yes");
+            		
 			//System.out.println("Update Succefully");
 			//response.sendRedirect("CustRequest.jsp?update=yes");
+            		request.setAttribute("u_name", username);
+    				request.getRequestDispatcher("CustRequest.jsp").forward(request, response);
 		}
 			
 		catch(Exception e){

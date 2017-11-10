@@ -99,7 +99,7 @@ if(request.getParameter("update")!=null)
 								<td><%=status%></td>
 								
 								
-								<td><a href="useract?val1=<%=order_id%>&val2=<%=item%>">Accept</a></td>
+								<td><a href="useract?val1=<%=order_id%>&val2=<%=item%>&val3=<%=user%>">Accept</a></td>
 							</tr>
 
 
