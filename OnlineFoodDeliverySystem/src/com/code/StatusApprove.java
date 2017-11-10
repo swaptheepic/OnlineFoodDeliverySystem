@@ -43,7 +43,7 @@ public class StatusApprove extends HttpServlet {
 			String m_id=request.getParameter("val2");
 			
 			
-			System.out.println("Order is  "+o_id);
+			System.out.println("Order is  "+o_id); 
 			System.out.println("Menu is  "+m_id);
 			
 			Connection con = DB_Connection.get_connection();
