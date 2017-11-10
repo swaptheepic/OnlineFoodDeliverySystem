@@ -45,6 +45,7 @@ public class Calculate extends HttpServlet {
 
 		String SessionID = String.valueOf(s.getId());
 		boolean status = false;
+		int r = 0;
 
 		try {
 
@@ -53,6 +54,7 @@ public class Calculate extends HttpServlet {
 
 			int total = 0;
 			int counter = 0;
+			
 
 			for (int i = 1; i < 5; i++) {
 				System.out.print(" " + request.getParameter("m_item" + i));
@@ -68,19 +70,36 @@ public class Calculate extends HttpServlet {
 				}
 
 				try {
+<<<<<<< HEAD
 
 					Statement st = con.createStatement();
 
 					int r = st.executeUpdate(
+=======
+					
+					Statement st = con.createStatement();
+					if(Integer.parseInt(quantity)>0) {
+						
+					r = st.executeUpdate(
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
+<<<<<<< HEAD
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu
 									+ "', '" + quantity + "' )");
+=======
+									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
+									+ "' )");
+						}
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 
 					if (r > 0) {
 						System.out.println("Insertion Successful");
 					} else {
 						System.out.println("Insertion Failed");
 					}
+					
+					
+					
 				} catch (Exception e) {
 					System.out.println(e);
 				}
@@ -92,7 +111,7 @@ public class Calculate extends HttpServlet {
 
 				Statement st = con.createStatement();
 
-				int r = st.executeUpdate("INSERT INTO `total_bill` (`order_id`, `total`) VALUES ('" + SessionID + "' ,'"
+				r = st.executeUpdate("INSERT INTO `total_bill` (`order_id`, `total`) VALUES ('" + SessionID + "' ,'"
 						+ total + "' )");
 				System.out.println("Total Inserted done");
 

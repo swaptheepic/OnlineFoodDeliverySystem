@@ -45,26 +45,21 @@ public class StatusApprove extends HttpServlet {
 			System.out.println("u id is "+lid);
 			
 			Connection con = DB_Connection.get_connection();
-			PreparedStatement ps=con.prepareStatement("select * from orders");
-			ResultSet rs=ps.executeQuery();
-			String order_id;
-			while(rs.next())
-			{
-				order_id=rs.getString("order_id");
-				if(lid.equals(order_id))
-				{
-					Statement st1=con.createStatement();
-					st1.executeUpdate("update orders set status = 'true'");
-					System.out.println("Update Succefully");
-					response.sendRedirect("CustRequest.jsp?update=yes");
-				}
+			
+			PreparedStatement ps = con.prepareStatement("select order_id from orders where order_id="+lid+"");
+			ResultSet rs = ps.executeQuery();
+			while (rs.getString("order_id").equals(lid)) {
+				ps.executeUpdate("UPDATE orders SET status = replace ("+rs.getString("order_id")+",'false','true') WHERE order_id="+rs.getString("order_id"));
+				
+				
 			}
-			Statement st1 = con.createStatement();
+				
+			System.out.println("Update Succefully");
+			response.sendRedirect("CustRequest.jsp?update=yes");
+		}
 			
-			
-			
-		}catch(Exception e){
-			System.out.println("ccc "+e);
+		catch(Exception e){
+			System.out.println("Exception"+e);
 		}
 	}
 

@@ -15,7 +15,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <%
@@ -120,13 +121,13 @@ p2 {
 		<p1>ONLINE FOOD DELIVERY SYSTEM</p1>
 		<align="right">
 		<form action="llogout" method="post">
-					<input type="submit" value="Logout" />
-				</form>
-				</align>
+			<input type="submit" value="Logout" />
+		</form>
+		</align>
 		<hr>
 		<hr>
 
-		
+
 
 	</div>
 	<div id="main-content">
@@ -161,6 +162,11 @@ p2 {
 						String order_id;
 						String m_item = null, price = null, qty = null, tot = null;
 						int res1_orders = 0;
+						int res2_orders = 0;
+						int res3_orders = 0;
+						int res4_orders = 0;
+						int res5_orders = 0;
+						int res6_orders = 0;
 						int sr = 0;
 
 						while (rs.next()) {
@@ -181,76 +187,84 @@ p2 {
 					<td><%=qty%></td>
 				</tr>
 				<%
-					if (rs.getString("rest_id").equals("rest1")) {
-								if (rs.getString("status").equals("false")) {
+						}				
+						
+						PreparedStatement timer = con.prepareStatement("select * from orders");
+						ResultSet timetod = timer.executeQuery();
+						while (timetod.next()) {
+							if (timetod.getString("rest_id").equals("rest1")) {
+								if (timetod.getString("status").equals("false")) {
 									res1_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
-							else if (rs.getString("rest_id").equals("rest2")) {
-								if (rs.getString("status").equals("false")) {
-									res1_orders++;
+							else if (timetod.getString("rest_id").equals("rest2")) {
+								if (timetod.getString("status").equals("false")) {
+									res2_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
-							else if (rs.getString("rest_id").equals("rest3")) {
-								if (rs.getString("status").equals("false")) {
-									res1_orders++;
+							else if (timetod.getString("rest_id").equals("rest3")) {
+								if (timetod.getString("status").equals("false")) {
+									res3_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
-							else if (rs.getString("rest_id").equals("rest4")) {
-								if (rs.getString("status").equals("false")) {
-									res1_orders++;
+							else if (timetod.getString("rest_id").equals("rest4")) {
+								if (timetod.getString("status").equals("false")) {
+									res4_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
-							else if (rs.getString("rest_id").equals("rest5")) {
-								if (rs.getString("status").equals("false")) {
-									res1_orders++;
+							else if (timetod.getString("rest_id").equals("rest5")) {
+								if (timetod.getString("status").equals("false")) {
+									res5_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
-							else if (rs.getString("rest_id").equals("rest6")) {
-								if (rs.getString("status").equals("false")) {
-									res1_orders++;
+							else if (timetod.getString("rest_id").equals("rest6")) {
+								if (timetod.getString("status").equals("false")) {
+									res6_orders++;
 								} else {
-									res1_orders--;
+									
 								}
 							}
 
 						}
+						
+							
+						
+							
+						
 				%>
 			</table>
 			<br>
 			<text align="right"> <p2>TOTAL COST: <%=tot%></p2></text>
-      
-			<p2 >Time to deliver iss: <%=res1_orders%></p2>
+
+			<p2>Time to deliver is: <%=res1_orders%></p2>
 			<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
-		
-			
+
+
 			</text>
 			<%
 	}	
 			%>
-			<div id="changeText">
-			
-			</div>
+			<div id="changeText"></div>
 		</div>
 
 
 	</div>
-<script>
+	<script>
 function nextMsg() {
 	var x = document.getElementById("bloop").value;
 	x = x * 1000;
