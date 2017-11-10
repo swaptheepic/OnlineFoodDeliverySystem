@@ -44,7 +44,7 @@
 </head>
 <body>
 
-	 <%
+	<%
     String user = (String)session.getAttribute("username");
 	 if (user!= null){
     %>
@@ -77,7 +77,7 @@
 							<br /> <br /> <br />
 							<div align="center">
 								<h3>
-									<h3>MENU FOR RES-1</h3>
+									<h3>MENU FOR RES-2</h3>
 									<br></br>
 								</h3>
 								<br />
@@ -109,21 +109,22 @@
 
 										<tr align="center">
 											<td><%=sr%></td>
-											<td><input type="hidden" name="m_item<%=sr%>" value=<%=m_item %>></input><%=m_item %></td>
-											<td><input type="hidden" name="m_price<%=sr%>" value=<%=price %>></input><%=price%>/-</td>
+											<td><input type="hidden" name="m_item<%=sr%>"
+												value=<%=m_item %>></input><%=m_item %></td>
+											<td><input type="hidden" name="m_price<%=sr%>"
+												value=<%=price %>></input><%=price%>/-</td>
 											<td>
-												
-													<div id="input_div">
-														<p>
-															<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
-																width="20" height="20" class="minus" /> 
-																<input name="qty<%=sr%>"
-																id="qty<%=sr%>" type="text" value="0" class="qty" /> 
-																<img
-																id="add1" src="http://i.imgur.com/98cvZnj.png"
-																width="20" height="20" class="add" />
-														</p>
-													</div>
+
+												<div id="input_div">
+													<p>
+														<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
+															width="20" height="20" class="minus" /> <input
+															name="qty<%=sr%>" id="qty<%=sr%>" type="text" value="0"
+															class="qty" /> <img id="add1"
+															src="http://i.imgur.com/98cvZnj.png" width="20"
+															height="20" class="add" />
+													</p>
+												</div>
 											</td>
 										</tr>
 										<%
@@ -131,12 +132,11 @@
 										%>
 
 									</table>
-								
 							</div>
 
 							<input type="submit" value="Submit" id="submit"></input>
 							</form>
-								
+
 						</div>
 					</div>
 

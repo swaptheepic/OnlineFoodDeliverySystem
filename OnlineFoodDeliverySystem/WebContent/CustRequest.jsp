@@ -55,6 +55,9 @@ if(request.getParameter("update")!=null)
                 <div class="templatemo_post">
                     <div align="center">
 						<h3>Learner Application</h3>
+						<% String user = (String)request.getAttribute("u_name");
+						   System.out.println("user="+user);
+						   %>
 						<br />
 						<table align="center" border="0" cellpadding="10" cellspacing="15">
 							<tr>
@@ -70,7 +73,10 @@ if(request.getParameter("update")!=null)
 								try {
 									Connection con = DB_Connection.get_connection();
 									PreparedStatement ps = con
-											.prepareStatement("SELECT * FROM orders where status='false'");
+											.prepareStatement("SELECT * FROM orders where status='false' and rest_id= ?");
+									
+									 ps.setString  (1, user);
+									
 									ResultSet rs = ps.executeQuery();
 									String order_id, status,user_id,item;
 									int srno = 0;

@@ -137,10 +137,7 @@ p2 {
 				<p>INVOICE</p>
 			</center>
 
-			<text align="left"> <p2>Order ID</p2></text>
-			<br>
-			<text align="left"> <p2>Address </p2></text>
-			<br>
+			
 			<table align="center" cellpadding="5" border="1" cellspacing="5"
 				bgcolor="white">
 				<tr>
@@ -188,7 +185,7 @@ p2 {
 					<td><%=qty%></td>
 				</tr>
 				<%
-						}				
+						}
 						
 						PreparedStatement timer = con.prepareStatement("select * from orders");
 						ResultSet timetod = timer.executeQuery();

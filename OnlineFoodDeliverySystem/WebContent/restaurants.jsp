@@ -4,6 +4,17 @@
 <!DOCTYPE html >
 <html>
 <head>
+<%
+	if (request.getParameter("success") != null) {
+		out.println(
+				"<script>alert('Login Successful..')</script>");
+		          response.sendRedirect("restaurants.jsp");
+
+	} else if (request.getParameter("same") != null) {
+		out.println("<script>alert('Login Unsuccessful')</script>");
+		response.sendRedirect("login.jsp");
+	}
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Online Food Delivery System</title>
 <meta name="keywords" content="free css layout, old blog template, CSS, HTML" />

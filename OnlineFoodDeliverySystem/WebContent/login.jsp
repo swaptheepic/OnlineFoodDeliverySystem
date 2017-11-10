@@ -11,7 +11,12 @@
 <%
 if(request.getParameter("success")!=null)
 {
-	out.println("<script>alert('Registration Successful..Please wait for ADMIN to accept your request')</script>");
+	out.println("<script>alert('Registration Successful..')</script>");
+	
+}
+else if(request.getParameter("fail")!=null)
+{
+	out.println("<script>alert('Login Failed..Please try again')</script>");
 	
 }
 %>
@@ -53,7 +58,7 @@ if(request.getParameter("success")!=null)
                 <div class="templatemo_post_wrapper">
                 <div class="templatemo_post">
                     <div align="center">
-						<h3>Learner Login</h3>
+						<h3>Customer Login</h3>
 						<br />
 
 						<form action="llog" method="post">
