@@ -18,6 +18,7 @@
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="assests/css/main.css" />
 <title>Insert title here</title>
 <%
 	String user = (String) session.getAttribute("username");
@@ -25,121 +26,67 @@
 		HttpSession s = request.getSession();
 %>
 <style>
-body {
-	display: flex;
-	flex-direction: column;
-	margin: 0px;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: absolute;
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:black;
 }
 
-h1 {
-	color: black;
-	font-family: Times New Roman;
-	font-size: 80%;
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    
 }
 
-p {
-	color: Red;
-	font-family: Times New Roman;
-	font-size: 150%;
-}
+#customers tr{background-color: #f2f2f2;}
 
-p1 {
-	color: black;
-	font-family: Times New Roman;
-	font-size: 150%;
-}
 
-p2 {
-	color: black;
-	font-family: Times New Roman;
-	font-size: 100%;
-}
+#customers tr:hover {background-color: #ddd;}
 
-#header {
-	height: 150px;
-	color: #ccc;
-	background-color: Gray;
-	padding-left: 15px;
-	padding-top: 15px;
-	text-align: center;
+#customers th {
+    
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
 }
-
-#footer {
-	height: 20px;
-	color: #ccc;
-	background-color: Gray;
-	padding-left: 15px;
-	padding-top: 15px;
-	text-align: center;
+.img{
+	opacity:0.1;
 }
-
-#main-content {
-	flex: 1;
-	display: flex;
-	flex-direction: row;
-}
-
-#sidebar {
-	width: 10%;
-	padding: 5px;
-	background-color: LightGray;
-	float: left;
-}
-
-#sidebar1 {
-	width: 10%;
-	padding: 5px;
-	background-color: LightGray;
-	float: right;
-}
-
-#main-container {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-
-.tabcontent {
-	background-color: white;
-	flex: 1;
-	padding: 10px;
+p2{
+	font-size : 30px;
 }
 </style>
 </head>
-<body>
-	<div id="header">
-		<center>
-			<img
-				src="http://myplace.frontier.com/~mealsonwheelsjc/images/logo.gif"
-				alt="Ericsson" style="width: 304px; height: 100px;">
-		</center>
-		<p1>ONLINE FOOD DELIVERY SYSTEM</p1>
-		<align="right">
+<body id=top>
+	<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>INVOICE!!</h1>
+							<p>
+							<h1> 
+							ORDER UPDATE:
+							<u><div id="changeText"></div></u>
+							</h1>
+						
+						</header>
+					</div>
+				</section>
+	
+		
 		<form action="llogout" method="post">
 			<input type="submit" value="Logout" />
 		</form>
-		</align>
-		<hr>
-		<hr>
-
-
-
-	</div>
+		
 	<div id="main-content">
 		<div id="sidebar"></div>
 		<div class="tabcontent">
 			<center>
-				<p>INVOICE</p>
+				
 			</center>
 
-			
-			<table align="center" cellpadding="5" border="1" cellspacing="5"
-				bgcolor="white">
+			<table align="center"  border="1" id="customers" cellspacing="10"
+										 bgcolor="black" name="menu" width="20%" style="font-size:18px;">
+				
 				<tr>
 					<th>SR No.</th>
 					<th>Menu Item</th>
@@ -247,11 +194,12 @@ p2 {
 				%>
 			</table>
 			<br>
-			<text align="right"> <p2>TOTAL COST: <%=tot%></p2></text>
+			<div class="inner" style="font-size: 30px;">
+			<h1><b float="middle">TOTAL COST: <u><%=tot%></u>/-</h1></div>
 			<%
 			if(rest_id.equals("rest1")){
 				%>
-				<p2>Time to deliver is: <%=res1_orders%></p2>
+				<p2>Time to deliver is: <%=res1_orders%> sec</p2>
 				<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
 				<%
 			}
@@ -259,34 +207,34 @@ p2 {
 			
 			else if(rest_id.equals("rest2")){
 				%>
-				<p2>Time to deliver is: <%=res2_orders%></p2>
+				<p2>Time to deliver is: <%=res2_orders%>sec</p2>
 			<input type="hidden" value=<%=res2_orders%> name="bloop" id="bloop"></input>
 				<%
 			}
 			
 			else if(rest_id.equals("rest3")){
 				%>
-				<p2>Time to deliver is: <%=res3_orders%></p2>
+				<p2>Time to deliver is: <%=res3_orders%>sec</p2>
 			<input type="hidden" value=<%=res3_orders%> name="bloop" id="bloop"></input>
 				<%
 			}
 				else if(rest_id.equals("rest4")){
 					%>
-					<p2>Time to deliver is: <%=res4_orders%></p2>
+					<p2>Time to deliver is: <%=res4_orders%>sec</p2>
 				<input type="hidden" value=<%=res4_orders%> name="bloop" id="bloop"></input>
 					<%
 				}
 				
 				else if(rest_id.equals("rest5")){
 					%>
-					<p2>Time to deliver is: <%=res5_orders%></p2>
+					<p2>Time to deliver is: <%=res5_orders%>sec</p2>
 				<input type="hidden" value=<%=res5_orders%> name="bloop" id="bloop"></input>
 					<%
 				}
 				
 				else if(rest_id.equals("rest6")){
 					%>
-					<p2>Time to deliver is: <%=res6_orders%></p2>
+					<p2>Time to deliver is: <%=res6_orders%> sec</p2>
 				<input type="hidden" value=<%=res6_orders%> name="bloop" id="bloop"></input>
 					<%
 				}
@@ -324,6 +272,12 @@ var messages = [
 $('#message').hide();
 nextMsg();
 </script>
+<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 
 </body>

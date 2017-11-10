@@ -49,13 +49,14 @@ public class Calculate extends HttpServlet {
 		String SessionID = String.valueOf(s.getId());
 		boolean status = false;
 		int r = 0;
+		int total = 0;
 
 		try {
 
 			System.out.println("User is " + user);
 			System.out.println("SessionID is " + SessionID);
 
-			int total = 0;
+	
 			int counter = 0;
 			
 
@@ -81,14 +82,14 @@ public class Calculate extends HttpServlet {
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
 									+ "' )");
-						}
-
 					if (r > 0) {
 						System.out.println("Insertion Successful");
 					} else {
 						System.out.println("Insertion Failed");
 					}
+						
 					
+					}
 					
 					
 				} catch (Exception e) {
@@ -120,7 +121,15 @@ public class Calculate extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		response.sendRedirect("in.jsp");	
+		
+		if(total>0) {
+			response.sendRedirect("in.jsp");
+		}
+		else {
+			response.sendRedirect("restaurants.jsp");
+		}
+		
+			
 		
 	}
 }

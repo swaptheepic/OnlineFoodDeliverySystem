@@ -1,81 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE HTML>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Predicting the Eligibility for Placement
-of Students Using Data Mining Technique</title>
-<meta name="keywords" content="free css layout, old blog template, CSS, HTML" />
-<meta name="description" content="Old Blog Template - free website template provided by TemplateMo.com" />
-<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-<!--  Designed by w w w . t e m p l a t e m o . c o m  -->
-<link rel="stylesheet" type="text/css" href="tabcontent.css" />
-<script type="text/javascript" src="tabcontent.js">
-/***********************************************
-* Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
-</script>
-</head>
-<body>
-	<div id="templatemo_header_panel">
-    	<div id="templatemo_title_section">
-				<h2>Online food delivery system</h2>
-	  </div>
-    </div> <!-- end of templatemo header panel -->
-    
-    <div id="templatemo_menu_panel">
-    	<div id="templatemo_menu_section">
-            <ul>
-                <li><a href="index.jsp" class="active">Home</a></li>
-						<li><a href="login.jsp">Login</a></li>
-						<li><a href="admin.jsp">CookLogin</a></li>
-						<li><a href="about.jsp">About</a></li>                  
-            </ul> 
-		</div>
-    </div> <!-- end of menu -->
-    
-	<div id="templatemo_content_container">
-        <div id="templatemo_content">
-            <div id="templatemo_content_left">
-				
-                <div class="templatemo_post_wrapper">
-                <div class="templatemo_post">
-                
-                    <div class="post_info">
-                    	<!-- Posted by <a href="http://www.templatemo.com" target="_blank">templatemo.com</a>, December 7, 2048 at 10:12 am, in <a href="#">Player.</a> -->
-                    </div>
-                    <div class="post_body">
-                            <center>
-							<div class="w3-content w3-section" style="max-width:500px">
-  										<img class="mySlides" src="images/12.jpg" style="width:100%">
-  										<img class="mySlides" src="images/23.jpg" style="width:100%">
-  										<img class="mySlides" src="images/34.jpg" style="width:100%">
+<html>
+	<head>
+		<title>ONLINE FOOD DELIVERY SYSTEM</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assests/css/main.css" />
+	</head>
+	<body id="top">
+		
+						<%
+					    String user = (String)session.getAttribute("username");
+					    %>
+				<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>ONLINE FOOD DELIVERY SYSTEM</h1>
+							<p>Order food on the go anytime and get it delivered in no time at your door step.	<br />
+
+						</header>
+						<a href="#main" class="more">Order Now</a>
+					</div>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Boxes -->
+						<div class="thumbnails">
+
+							<div class="box">
+
+								<div class="inner">
+									<h3>LOGIN</h3>
+
+									<a href="login.jsp" class="button fit" >LOGIN</a>
+								</div>
 							</div>
-							</center>
-							<script>
-									var myIndex = 0;
-									carousel();
 
-									function carousel() {
-    												var i;
-   													 var x = document.getElementsByClassName("mySlides");
-   													 for (i = 0; i < x.length; i++) {
-   															   x[i].style.display = "none";  
-   												     }
-   													 myIndex++;
-  													  if (myIndex > x.length) {myIndex = 1}    
-  													  x[myIndex-1].style.display = "block";  
-    												setTimeout(carousel, 2000); // Change image every 2 seconds
-													}
-						</script>
-					
-                      
-                  </div>
-             
-                </div>
-                </div>
-                </html>
+							<div class="box">
+
+								<div class="inner">
+									<h3>REGISTRATION</h3>
+									<a href="CustReg.jsp" class="button style2 fit" >REGISTRATION</a>
+								</div>
+							</div>
+
+							<div class="box">
+
+								<div class="inner">
+									<h3>COOK LOGIN</h3>
+									<a href="admin.jsp" class="button style2 fit" >COOK LOGIN</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="inner">
+									<h3>ABOUT</h3>
+									<a href="about.jsp" class="button style2 fit" >ABOUT</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

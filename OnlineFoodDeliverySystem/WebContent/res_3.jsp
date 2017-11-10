@@ -1,97 +1,131 @@
-<%@page import="connection.DB_Connection"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+	<%@page import="TestCases.Restaurant_Testing"%>
 
-<%@page import="java.text.DateFormat"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
-<%@page import="java.util.Calendar"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
+	<%@page import="connection.DB_Connection"%>
+
+	
 
 
+	<%@page import="java.text.DateFormat"%>
+	<%@page import="java.text.SimpleDateFormat"%>
+	<%@page import="java.util.Date"%>
+	<%@page import="java.util.Calendar"%>
+	<%@page import="java.sql.Connection"%>
+	<%@page import="java.sql.PreparedStatement"%>
+	<%@page import="java.sql.ResultSet"%>
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>ONLINE FOOD DELIVERY SYSTEM</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assests/css/main.css" />
+		<script src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			crossorigin="anonymous"></script>
+
+		<style>
+			body {
+			margin:0;
+			color=#black;
+			}
+			
+
+.topnav {
+	margin-left:520px;
+  overflow: hidden;
+  background-color: #333;
+  width:15%;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:black;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    
+}
+
+#customers tr{background-color: #f2f2f2;}
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<title>Online Food Delivery System</title>
-<meta name="keywords"
-	content="free css layout, old blog template, CSS, HTML" />
-<meta name="description"
-	content="Old Blog Template - free website template provided by TemplateMo.com" />
-<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-<!--  Designed by w w w . t e m p l a t e m o . c o m  -->
-<link rel="stylesheet" type="text/css" href="tabcontent.css" />
-<script type="text/javascript" src="tabcontent.js">
-	/***********************************************
-	 * Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
-	 * This notice MUST stay intact for legal use
-	 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-	 ***********************************************/
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
+#customers tr:hover {background-color: #ddd;}
 
+#customers th {
+    
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
 
-</head>
-<body>
+		</style>
+	</head>
+	<body id="top">
+						<%
+					    String user = (String)session.getAttribute("username");
+					    %>
+				<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>ONLINE FOOD DELIVERY SYSTEM</h1>
+							<p>Order food on the go anytime and get it delivered in no time at your door step.	<br />
 
-	<%
-    String user = (String)session.getAttribute("username");
-	 if (user!= null){
-    %>
+						</header>
+						<a href="#main" class="more">Order Now</a>
+					</div>
+				</section>
+				<div class="topnav">
+						<a href="restaurants.jsp">Back</a>
+  					<a href="#news">
+  						<form action="llogout" method="post">
+							<input type="submit" value="Logout" />
+						</form>
+  					</a>
 
-	<div id="templatemo_header_panel">
-		<div id="templatemo_title_section">
-			<h2>Online Food Delivery System</h2>
-		</div>
-	</div>
-	<!-- end of templatemo header panel -->
+</div>
 
-	<div id="templatemo_menu_panel">
-		<div id="templatemo_menu_section">
-			<ul>
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
 
-				<!-- <li><a href="updateprofile.jsp">Update Profile</a></li> -->
-				<li><a href="restaurants.jsp">Back</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- end of menu -->
+					<!-- Boxes -->
+						
 
-	<div id="templatemo_content_container">
-		<div id="templatemo_content">
-			<div id="templatemo_content_left">
-
-				<div class="templatemo_post_wrapper">
-					<div class="templatemo_post">
-						<div align="center">
-							<br /> <br /> <br />
-							<div align="center">
-								<h3>
-									<h3>MENU FOR RES-3</h3>
-									<br></br>
-								</h3>
-								<br />
+							
 								<form action="calc" method="post">
-									<input type="hidden" name="rest" value="rest3"></input>
-									<table align="center" cellpadding="5" border="1"
-										cellspacing="5" bgcolor="white" name="menu">
+									<input type="hidden" name="rest" value="rest1"></input>
+									
+									<table align="center"  border="1" id="customers" cellspacing="10"
+										 bgcolor="black" name="menu" width="20%" style="font-size:18px;">
 
 
 										<tr>
-											<th>SR No.</th>
-											<th>Menu Item</th>
-											<th>Price</th>
-											<th>Quantity</th>
+											<th align="center">SR No.</th>
+											<th>MENU ITEM</th>
+											<th>PRICE</th>
+											<th>QUANTITY</th>
 										</tr>
 										<%
 											Connection con = DB_Connection.get_connection();
@@ -103,6 +137,8 @@
 												sr++;
 												m_item = rs.getString("Name");
 												price = rs.getString("Price");
+
+
 
 												System.out.println(m_item + " " + price);
 										%>
@@ -129,40 +165,45 @@
 										</tr>
 										<%
 											}
+
 										%>
 
 									</table>
+																	
 							</div>
 
-							<input type="submit" value="Submit" id="submit"></input>
+							</div>
+
+						<input  style="float:right;margin-right:16cm;" type="submit" value="ORDER NOW" id="submit" ></input>
 							</form>
 
-						</div>
-					</div>
-
+					
 				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-</body>
-<script>
-	$(function() {
-		$('.minus,.add')
-				.on(
-						'click',
-						function() {
-							var $qty = $(this).closest('p').find('.qty'), currentVal = parseInt($qty
-									.val()), isAdd = $(this).hasClass('add');
-							!isNaN(currentVal)
-									&& $qty.val(isAdd ? ++currentVal
-											: (currentVal > 0 ? --currentVal
-													: currentVal));
-						});
-	});
-</script>
+
+			<!-- Footer -->
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				$(function() {
+					$('.minus,.add')
+							.on(
+									'click',
+									function() {
+										var $qty = $(this).closest('p').find('.qty'), currentVal = parseInt($qty
+												.val()), isAdd = $(this).hasClass('add');
+										!isNaN(currentVal)
+												&& $qty.val(isAdd ? ++currentVal
+														: (currentVal > 0 ? --currentVal
+																: currentVal));
+									});
+				});
+			</script>
+	</body>
 </html>
-<%
-	 }
-%>

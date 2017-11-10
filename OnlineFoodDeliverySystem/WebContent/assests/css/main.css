@@ -48,6 +48,8 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
+	
+	
 
 /* Box Model */
 
@@ -1180,7 +1182,7 @@
 	}
 	 
 	img {
-	opacity:0.2;
+	opacity:0.5;
 	}
 
 		#banner .inner {

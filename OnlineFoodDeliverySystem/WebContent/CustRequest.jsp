@@ -12,16 +12,119 @@
 <title>Online Food Delivery System</title>
 <meta name="keywords" content="free css layout, old blog template, CSS, HTML" />
 <meta name="description" content="Old Blog Template - free website template provided by TemplateMo.com" />
-<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-<!--  Designed by w w w . t e m p l a t e m o . c o m  -->
-<link rel="stylesheet" type="text/css" href="tabcontent.css" />
+<link rel="stylesheet" href="assests/css/main.css" />
+		<script src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			crossorigin="anonymous"></script>
+
 <script type="text/javascript" src="tabcontent.js">
-/*********************************************** 
-* Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
+
 </script>
+<style>
+			body {
+			margin:0;
+			color=#black;
+			}
+			
+
+.topnav {
+	margin-left:520px;
+  overflow: hidden;
+  background-color: #333;
+  width:15%;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:black;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    
+}
+
+#customers tr{background-color: #f2f2f2;}
+
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<style>
+body {
+	margin:0;
+	color=#black;
+}
+			
+
+.topnav {
+margin-left:620px;
+  overflow: hidden;
+  background-color: #333;
+  width:07%;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:black;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    
+}
+
+#customers tr{background-color: #f2f2f2;}
+
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+		</style>
 </head>
 <body>
 <%
@@ -33,19 +136,15 @@ if(request.getParameter("update")!=null)
 %>
 	<div id="templatemo_header_panel">
     	<div id="templatemo_title_section">
-				<h2>Online Food Delivery System</h2>
+				<h2 align=center> ONLINE &nbsp;FOOD&nbsp;DELIVERY&nbsp;SYSTEM</h2>
 	  </div>
     </div> <!-- end of templatemo header panel -->
-    
-    <div id="templatemo_menu_panel">
-    	<div id="templatemo_menu_section">
-            <ul>
-                <li><a href="Home.jsp">Home</a></li>
+   
 						
-						<li><a href="index.jsp">Logout</a></li>                    
-            </ul> 
+    	<div class="topnav">
+  					<a href="index.jsp">HOME</a>
 		</div>
-    </div> <!-- end of menu -->
+    
     
 	<div id="templatemo_content_container">
         <div id="templatemo_content">
@@ -54,12 +153,13 @@ if(request.getParameter("update")!=null)
                 <div class="templatemo_post_wrapper">
                 <div class="templatemo_post">
                     <div align="center">
-						<h3>Learner Application</h3>
+						<h3>COOK DASHBOARD</h3>
 						<% String user = (String)request.getAttribute("u_name");
 						   System.out.println("user="+user);
 						   %>
 						<br />
-						<table align="center" border="0" cellpadding="10" cellspacing="15">
+					<table align="center"  border="1" id="customers" cellspacing="10"
+										 bgcolor="black" name="menu" width="20%" style="font-size:18px;">
 							<tr>
 								<th>Sr.No</th>
 								<th>Order ID</th>
@@ -99,7 +199,7 @@ if(request.getParameter("update")!=null)
 								<td><%=status%></td>
 								
 								
-								<td><a href="useract?val1=<%=order_id%>&val2=<%=item%>&val3=<%=user%>">Accept</a></td>
+								<td ><a href="useract?val1=<%=order_id%>&val2=<%=item%>&val3=<%=user%>"><font color="red">Accept </font></a></td>
 							</tr>
 
 
