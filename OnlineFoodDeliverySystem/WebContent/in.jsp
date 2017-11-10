@@ -160,7 +160,7 @@ p2 {
 						ResultSet rs = ps.executeQuery();
 						ResultSet total_amount = total.executeQuery();
 						String order_id;
-						String m_item = null, price = null, qty = null, tot = null;
+						String m_item = null, price = null, qty = null, tot = null,rest_id = null;
 						int res1_orders = 0;
 						int res2_orders = 0;
 						int res3_orders = 0;
@@ -174,6 +174,7 @@ p2 {
 							order_id = rs.getString("order_id");
 							m_item = rs.getString("menu");
 							qty = rs.getString("qty");
+							rest_id = rs.getString("rest_id");
 							while (total_amount.next()) {
 
 								tot = total_amount.getString("total");
@@ -250,11 +251,50 @@ p2 {
 			</table>
 			<br>
 			<text align="right"> <p2>TOTAL COST: <%=tot%></p2></text>
-
-			<p2>Time to deliver is: <%=res1_orders%></p2>
-			<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
-
-
+			<%
+			if(rest_id.equals("rest1")){
+				%>
+				<p2>Time to deliver is: <%=res1_orders%></p2>
+				<input type="hidden" value=<%=res1_orders%> name="bloop" id="bloop"></input>
+				<%
+			}
+			
+			
+			else if(rest_id.equals("rest2")){
+				%>
+				<p2>Time to deliver is: <%=res2_orders%></p2>
+			<input type="hidden" value=<%=res2_orders%> name="bloop" id="bloop"></input>
+				<%
+			}
+			
+			else if(rest_id.equals("rest3")){
+				%>
+				<p2>Time to deliver is: <%=res3_orders%></p2>
+			<input type="hidden" value=<%=res3_orders%> name="bloop" id="bloop"></input>
+				<%
+			}
+				else if(rest_id.equals("rest4")){
+					%>
+					<p2>Time to deliver is: <%=res4_orders%></p2>
+				<input type="hidden" value=<%=res4_orders%> name="bloop" id="bloop"></input>
+					<%
+				}
+				
+				else if(rest_id.equals("rest5")){
+					%>
+					<p2>Time to deliver is: <%=res5_orders%></p2>
+				<input type="hidden" value=<%=res5_orders%> name="bloop" id="bloop"></input>
+					<%
+				}
+				
+				else if(rest_id.equals("rest6")){
+					%>
+					<p2>Time to deliver is: <%=res6_orders%></p2>
+				<input type="hidden" value=<%=res6_orders%> name="bloop" id="bloop"></input>
+					<%
+				}
+			
+			%>
 			</text>
 			<%
 	}	

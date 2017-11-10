@@ -60,7 +60,9 @@ if(request.getParameter("update")!=null)
 							<tr>
 								<th>Sr.No</th>
 								<th>Order ID</th>
+								<th>Menu Item</th>
 								<th>Status</th>
+								
 								
 								<th>Action</th>
 							</tr>
@@ -70,14 +72,16 @@ if(request.getParameter("update")!=null)
 									PreparedStatement ps = con
 											.prepareStatement("SELECT * FROM orders where status='false'");
 									ResultSet rs = ps.executeQuery();
-									String order_id, status,user_id;
+									String order_id, status,user_id,item;
 									int srno = 0;
 									String id;
 									while (rs.next()) {
 										srno++;
 										order_id=rs.getString("order_id");
 										user_id=rs.getString("user_id");
+										item=rs.getString("menu");
 										status=rs.getString("status");
+										
 
 										
 							%>
@@ -85,10 +89,11 @@ if(request.getParameter("update")!=null)
 							<tr align="center">
 								<td><%=srno%></td>
 								<td><%=order_id%></td>
+								<td><%=item%></td>
 								<td><%=status%></td>
 								
 								
-								<td><a href="useract?val=<%=order_id%>">Accept</a></td>
+								<td><a href="useract?val1=<%=order_id%>&val2=<%=item%>">Accept</a></td>
 							</tr>
 
 
