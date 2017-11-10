@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.code.Registration_testing;
-
 public class Test_RPhno_Failure {
 
 	@Test
