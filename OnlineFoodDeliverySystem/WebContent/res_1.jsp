@@ -1,3 +1,5 @@
+<%@page import="TestCases.Restaurant_Testing"%>
+
 <%@page import="connection.DB_Connection"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -103,6 +105,8 @@
 												sr++;
 												m_item = rs.getString("Name");
 												price = rs.getString("Price");
+												
+												
 
 												System.out.println(m_item + " " + price);
 										%>
@@ -129,6 +133,7 @@
 										</tr>
 										<%
 											}
+											
 										%>
 
 									</table>
