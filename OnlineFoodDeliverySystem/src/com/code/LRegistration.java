@@ -74,6 +74,10 @@ public class LRegistration extends HttpServlet {
 			ResultSet rs2 = ps2.executeQuery();
 			String uname = request.getParameter("uname");
 			String pwd = request.getParameter("pwd");
+			
+			
+			Registration_testing reg_test = new Registration_testing();
+			reg_test.accept_reg(uname,pwd);
 			System.out.println("Password====" + pwd);
 			while (rs2.next()) {
 
@@ -95,13 +99,16 @@ public class LRegistration extends HttpServlet {
 								+ fname + "', '" + uname + "', '" + pwd + "', '" + address + "', '" + mbno + "','"
 								+ appdate + "')");
 				System.out.println("Insert done");
+				
 
 				if (r > 0) {
 					response.sendRedirect("CustReg.jsp?success");
 					System.out.println("Registration Successful");
+					
 				} else {
 					response.sendRedirect("CustReg.jsp?fail=yes");
 					System.out.println("Registration Failed");
+					
 				}
 			} catch (Exception e) {
 				System.out.println(e);
@@ -111,4 +118,6 @@ public class LRegistration extends HttpServlet {
 		}
 
 	}
+	
+	
 }
