@@ -43,8 +43,7 @@ public class Calculate extends HttpServlet {
 
 		HttpSession s = request.getSession();
 		String user = (String) s.getAttribute("username");
-		
-		
+
 		String SessionID = String.valueOf(s.getId());
 		boolean status = false;
 		int r = 0;
@@ -70,17 +69,29 @@ public class Calculate extends HttpServlet {
 					total += Integer.parseInt(request.getParameter("m_price" + i))
 							* Integer.parseInt(request.getParameter("qty" + i));
 				}
-				
+
 				try {
+<<<<<<< HEAD
+
+					Statement st = con.createStatement();
+
+					int r = st.executeUpdate(
+=======
 					
 					Statement st = con.createStatement();
 					if(Integer.parseInt(quantity)>0) {
 						
 					r = st.executeUpdate(
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 							"INSERT INTO `orders` (`order_id`, `user_id`, `rest_id`, `status`, `menu`, `qty`) VALUES ('"
+<<<<<<< HEAD
+									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu
+									+ "', '" + quantity + "' )");
+=======
 									+ SessionID + "' , '" + user + "', '" + restaurant + "', '" + status + "', '" + menu + "', '" + quantity
 									+ "' )");
 						}
+>>>>>>> branch 'master' of https://github.com/swaptheepic/OnlineFoodDeliverySystem.git
 
 					if (r > 0) {
 						System.out.println("Insertion Successful");
@@ -95,7 +106,6 @@ public class Calculate extends HttpServlet {
 				}
 			}
 
-			
 			System.out.println("Total is: " + total);
 
 			try {
@@ -118,8 +128,8 @@ public class Calculate extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
-		response.sendRedirect("in.jsp");	
-		
+
+		response.sendRedirect("in.jsp");
+
 	}
 }

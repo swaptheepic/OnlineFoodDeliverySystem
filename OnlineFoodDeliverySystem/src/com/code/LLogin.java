@@ -58,7 +58,7 @@ public class LLogin extends HttpServlet {
 				System.out.println("LOGIN SUCCESSFUL");
 				String MyUser = rs.getString("username");
 				s.setAttribute("username", MyUser);
-				response.sendRedirect("restaurants.jsp");
+				response.sendRedirect("restaurant1.jsp");
 			}
 
 			else {
