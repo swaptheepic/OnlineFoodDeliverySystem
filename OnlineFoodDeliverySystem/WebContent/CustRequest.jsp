@@ -16,7 +16,7 @@
 <!--  Designed by w w w . t e m p l a t e m o . c o m  -->
 <link rel="stylesheet" type="text/css" href="tabcontent.css" />
 <script type="text/javascript" src="tabcontent.js">
-/***********************************************
+/*********************************************** 
 * Tab Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
@@ -55,12 +55,17 @@ if(request.getParameter("update")!=null)
                 <div class="templatemo_post">
                     <div align="center">
 						<h3>Learner Application</h3>
+						<% String user = (String)request.getAttribute("u_name");
+						   System.out.println("user="+user);
+						   %>
 						<br />
 						<table align="center" border="0" cellpadding="10" cellspacing="15">
 							<tr>
 								<th>Sr.No</th>
 								<th>Order ID</th>
+								<th>Menu Item</th>
 								<th>Status</th>
+								
 								
 								<th>Action</th>
 							</tr>
@@ -68,16 +73,21 @@ if(request.getParameter("update")!=null)
 								try {
 									Connection con = DB_Connection.get_connection();
 									PreparedStatement ps = con
-											.prepareStatement("SELECT * FROM orders where status='false'");
+											.prepareStatement("SELECT * FROM orders where status='false' and rest_id= ?");
+									
+									 ps.setString  (1, user);
+									
 									ResultSet rs = ps.executeQuery();
-									String order_id, status,user_id;
+									String order_id, status,user_id,item;
 									int srno = 0;
 									String id;
 									while (rs.next()) {
 										srno++;
 										order_id=rs.getString("order_id");
 										user_id=rs.getString("user_id");
+										item=rs.getString("menu");
 										status=rs.getString("status");
+										
 
 										
 							%>
@@ -85,10 +95,11 @@ if(request.getParameter("update")!=null)
 							<tr align="center">
 								<td><%=srno%></td>
 								<td><%=order_id%></td>
+								<td><%=item%></td>
 								<td><%=status%></td>
 								
 								
-								<td><a href="useract?val=<%=order_id%>">Accept</a></td>
+								<td><a href="useract?val1=<%=order_id%>&val2=<%=item%>">Accept</a></td>
 							</tr>
 
 

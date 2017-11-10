@@ -103,7 +103,7 @@ public class LRegistration extends HttpServlet {
 				
 
 				if (r > 0) {
-					response.sendRedirect("CustReg.jsp?success");
+					response.sendRedirect("login.jsp?success");
 					System.out.println("Registration Successful");
 					
 				} else {

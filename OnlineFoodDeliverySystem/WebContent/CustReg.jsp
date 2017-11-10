@@ -11,7 +11,8 @@
 <%
 	if (request.getParameter("success") != null) {
 		out.println(
-				"<script>alert('Registration Successful..Please wait for ADMIN to accept your request')</script>");
+				"<script>alert('Registration Successful..')</script>");
+		          response.sendRedirect("login.jsp?success");
 
 	} else if (request.getParameter("same") != null) {
 		out.println("<script>alert('Registration Unsuccessful..User Already Exists')</script>");

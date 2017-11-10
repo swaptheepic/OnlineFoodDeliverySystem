@@ -46,7 +46,7 @@
 </head>
 <body>
 
-	 <%
+	<%
     String user = (String)session.getAttribute("username");
 	 if (user!= null){
     %>
@@ -113,36 +113,35 @@
 
 										<tr align="center">
 											<td><%=sr%></td>
-											<td><input type="hidden" name="m_item<%=sr%>" value=<%=m_item %>></input><%=m_item %></td>
-											<td><input type="hidden" name="m_price<%=sr%>" value=<%=price %>></input><%=price%>/-</td>
+											<td><input type="hidden" name="m_item<%=sr%>"
+												value=<%=m_item %>></input><%=m_item %></td>
+											<td><input type="hidden" name="m_price<%=sr%>"
+												value=<%=price %>></input><%=price%>/-</td>
 											<td>
-												
-													<div id="input_div">
-														<p>
-															<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
-																width="20" height="20" class="minus" /> 
-																<input name="qty<%=sr%>"
-																id="qty<%=sr%>" type="text" value="0" class="qty" /> 
-																<img
-																id="add1" src="http://i.imgur.com/98cvZnj.png"
-																width="20" height="20" class="add" />
-														</p>
-													</div>
+
+												<div id="input_div">
+													<p>
+														<img src="http://i.imgur.com/yOadS1c.png" id="minus1"
+															width="20" height="20" class="minus" /> <input
+															name="qty<%=sr%>" id="qty<%=sr%>" type="text" value="0"
+															class="qty" /> <img id="add1"
+															src="http://i.imgur.com/98cvZnj.png" width="20"
+															height="20" class="add" />
+													</p>
+												</div>
 											</td>
 										</tr>
 										<%
 											}
-											Restaurant_Testing res_test = new Restaurant_Testing();
-											res_test .test_menu(m_item,price);
+											
 										%>
 
 									</table>
-								
 							</div>
 
 							<input type="submit" value="Submit" id="submit"></input>
 							</form>
-								
+
 						</div>
 					</div>
 

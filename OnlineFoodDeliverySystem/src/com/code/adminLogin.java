@@ -64,7 +64,8 @@ public class adminLogin extends HttpServlet {
 				System.out.println("Login successfully");
 
 				session.setAttribute("username", username);
-				response.sendRedirect("CustRequest.jsp?status=succes");
+				request.setAttribute("u_name", username);
+				request.getRequestDispatcher("CustRequest.jsp").forward(request, response);
 				
 			}
 

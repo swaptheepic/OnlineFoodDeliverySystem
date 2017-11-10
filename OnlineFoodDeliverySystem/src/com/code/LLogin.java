@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import TestCases.Login_Testing;
 import connection.DB_Connection;
 
 @WebServlet("/LLogin")
@@ -59,15 +58,12 @@ public class LLogin extends HttpServlet {
 				System.out.println("LOGIN SUCCESSFUL");
 				String MyUser = rs.getString("username");
 				s.setAttribute("username", MyUser);
-				response.sendRedirect("restaurant1.jsp");
-				Login_Testing ltest = new Login_Testing();
-				ltest.validate_user(username);
+				response.sendRedirect("restaurants.jsp?success");
 			}
 
 			else {
 				System.out.println("Login failed");
-
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("login.jsp?fail");
 			}
 			ps.close();
 
