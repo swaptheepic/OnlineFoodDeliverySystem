@@ -1,4 +1,4 @@
-package com.code;
+package TestCases;
 
 public class Registration_testing {
 

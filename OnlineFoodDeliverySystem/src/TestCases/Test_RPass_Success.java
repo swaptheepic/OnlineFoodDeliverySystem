@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import org.junit.Test;
 
 import com.code.LRegistration;
-import com.code.Registration_testing;
 
 public class Test_RPass_Success extends  HttpServlet {
 
